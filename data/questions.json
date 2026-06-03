@@ -1,5 +1,17 @@
-{
-    "0": {
+[
+    {
+        "subjectId": "toan",
+        "examCode": 1,
+        "displayNum": 2,
+        "questionId": 112,
+        "question": "Hạng của ma trận không bằng bao nhiêu?",
+        "A": "1",
+        "B": "Vô cùng",
+        "C": "Không xác định",
+        "D": "0",
+        "correct": "D"
+    },
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 3,
@@ -11,7 +23,7 @@
         "D": "Không tồn tại",
         "correct": "A"
     },
-    "1": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 4,
@@ -23,7 +35,7 @@
         "D": "0",
         "correct": "C"
     },
-    "2": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 5,
@@ -35,7 +47,7 @@
         "D": "-sin(x)",
         "correct": "D"
     },
-    "3": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 6,
@@ -47,7 +59,7 @@
         "D": "A là ma trận hàng",
         "correct": "C"
     },
-    "4": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 7,
@@ -59,7 +71,7 @@
         "D": "ln(x)",
         "correct": "C"
     },
-    "5": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 8,
@@ -71,7 +83,7 @@
         "D": "x",
         "correct": "C"
     },
-    "6": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 9,
@@ -83,7 +95,7 @@
         "D": "Không có",
         "correct": "A"
     },
-    "7": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 10,
@@ -95,7 +107,7 @@
         "D": "Bằng 1",
         "correct": "B"
     },
-    "8": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 11,
@@ -107,7 +119,7 @@
         "D": "1\/x",
         "correct": "B"
     },
-    "9": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 12,
@@ -119,7 +131,7 @@
         "D": "Ma trận không",
         "correct": "A"
     },
-    "10": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 13,
@@ -131,7 +143,7 @@
         "D": "Ma trận suy biến",
         "correct": "D"
     },
-    "11": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 14,
@@ -143,7 +155,7 @@
         "D": "ad + bc",
         "correct": "B"
     },
-    "12": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 15,
@@ -155,7 +167,7 @@
         "D": "9",
         "correct": "B"
     },
-    "13": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 16,
@@ -167,7 +179,7 @@
         "D": "7",
         "correct": "B"
     },
-    "14": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 17,
@@ -179,7 +191,7 @@
         "D": "3",
         "correct": "A"
     },
-    "15": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 18,
@@ -191,7 +203,7 @@
         "D": "Độ dài bằng nhau",
         "correct": "A"
     },
-    "16": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 19,
@@ -203,7 +215,7 @@
         "D": "Tuần hoàn",
         "correct": "D"
     },
-    "17": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 20,
@@ -215,7 +227,7 @@
         "D": "y = x^3 + x",
         "correct": "D"
     },
-    "18": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 21,
@@ -227,7 +239,7 @@
         "D": "Vô nghiệm",
         "correct": "B"
     },
-    "19": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 22,
@@ -239,7 +251,7 @@
         "D": "Các phần tử dòng 1",
         "correct": "C"
     },
-    "20": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 23,
@@ -251,7 +263,7 @@
         "D": "4",
         "correct": "C"
     },
-    "21": {
+    {
         "subjectId": "toan",
         "examCode": 1,
         "displayNum": 24,
@@ -263,7 +275,7 @@
         "D": "(0,0)",
         "correct": "D"
     },
-    "22": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 1,
@@ -275,7 +287,7 @@
         "D": "Bằng 1",
         "correct": "B"
     },
-    "23": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 2,
@@ -287,7 +299,7 @@
         "D": "Ma trận suy biến",
         "correct": "D"
     },
-    "24": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 3,
@@ -299,7 +311,7 @@
         "D": "y = x^3 + x",
         "correct": "D"
     },
-    "25": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 4,
@@ -311,7 +323,7 @@
         "D": "7",
         "correct": "B"
     },
-    "26": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 5,
@@ -323,7 +335,7 @@
         "D": "Không tồn tại",
         "correct": "A"
     },
-    "27": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 6,
@@ -335,7 +347,7 @@
         "D": "ad + bc",
         "correct": "B"
     },
-    "28": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 7,
@@ -347,7 +359,7 @@
         "D": "Các phần tử dòng 1",
         "correct": "C"
     },
-    "29": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 8,
@@ -359,7 +371,7 @@
         "D": "(0,0)",
         "correct": "D"
     },
-    "30": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 9,
@@ -371,7 +383,7 @@
         "D": "Độ dài bằng nhau",
         "correct": "A"
     },
-    "31": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 10,
@@ -383,7 +395,7 @@
         "D": "det(A) # 0",
         "correct": "A"
     },
-    "32": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 11,
@@ -395,7 +407,7 @@
         "D": "0",
         "correct": "C"
     },
-    "33": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 12,
@@ -407,7 +419,7 @@
         "D": "1\/x",
         "correct": "B"
     },
-    "34": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 13,
@@ -419,7 +431,7 @@
         "D": "Tuần hoàn",
         "correct": "D"
     },
-    "35": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 14,
@@ -431,7 +443,7 @@
         "D": "-sin(x)",
         "correct": "D"
     },
-    "36": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 15,
@@ -443,7 +455,7 @@
         "D": "Vô nghiệm",
         "correct": "B"
     },
-    "37": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 16,
@@ -455,7 +467,7 @@
         "D": "4",
         "correct": "C"
     },
-    "38": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 17,
@@ -467,7 +479,7 @@
         "D": "x",
         "correct": "C"
     },
-    "39": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 18,
@@ -479,7 +491,7 @@
         "D": "Không có",
         "correct": "A"
     },
-    "40": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 19,
@@ -491,7 +503,7 @@
         "D": "3",
         "correct": "A"
     },
-    "41": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 20,
@@ -503,7 +515,7 @@
         "D": "ln(x)",
         "correct": "C"
     },
-    "42": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 21,
@@ -515,7 +527,7 @@
         "D": "9",
         "correct": "B"
     },
-    "43": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 22,
@@ -527,7 +539,7 @@
         "D": "A là ma trận hàng",
         "correct": "C"
     },
-    "44": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 23,
@@ -539,7 +551,7 @@
         "D": "Ma trận không",
         "correct": "A"
     },
-    "45": {
+    {
         "subjectId": "toan",
         "examCode": 2,
         "displayNum": 24,
@@ -551,7 +563,7 @@
         "D": "0",
         "correct": "D"
     },
-    "46": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 1,
@@ -563,7 +575,7 @@
         "D": "Không có",
         "correct": "A"
     },
-    "47": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 2,
@@ -575,7 +587,7 @@
         "D": "Các phần tử dòng 1",
         "correct": "C"
     },
-    "48": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 3,
@@ -587,7 +599,7 @@
         "D": "ad + bc",
         "correct": "B"
     },
-    "49": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 4,
@@ -599,7 +611,7 @@
         "D": "x",
         "correct": "C"
     },
-    "50": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 5,
@@ -611,7 +623,7 @@
         "D": "Vô nghiệm",
         "correct": "B"
     },
-    "51": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 6,
@@ -623,7 +635,7 @@
         "D": "3",
         "correct": "A"
     },
-    "52": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 7,
@@ -635,7 +647,7 @@
         "D": "Tuần hoàn",
         "correct": "D"
     },
-    "53": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 8,
@@ -647,7 +659,7 @@
         "D": "0",
         "correct": "D"
     },
-    "54": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 9,
@@ -659,7 +671,7 @@
         "D": "Không tồn tại",
         "correct": "A"
     },
-    "55": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 10,
@@ -671,7 +683,7 @@
         "D": "ln(x)",
         "correct": "C"
     },
-    "56": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 11,
@@ -683,7 +695,7 @@
         "D": "9",
         "correct": "B"
     },
-    "57": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 12,
@@ -695,7 +707,7 @@
         "D": "7",
         "correct": "B"
     },
-    "58": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 13,
@@ -707,7 +719,7 @@
         "D": "Bằng 1",
         "correct": "B"
     },
-    "59": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 14,
@@ -719,7 +731,7 @@
         "D": "Ma trận không",
         "correct": "A"
     },
-    "60": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 15,
@@ -731,7 +743,7 @@
         "D": "Ma trận suy biến",
         "correct": "D"
     },
-    "61": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 16,
@@ -743,7 +755,7 @@
         "D": "A là ma trận hàng",
         "correct": "C"
     },
-    "62": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 17,
@@ -755,7 +767,7 @@
         "D": "4",
         "correct": "C"
     },
-    "63": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 18,
@@ -767,7 +779,7 @@
         "D": "det(A) # 0",
         "correct": "A"
     },
-    "64": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 19,
@@ -779,7 +791,7 @@
         "D": "y = x^3 + x",
         "correct": "D"
     },
-    "65": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 20,
@@ -791,7 +803,7 @@
         "D": "1\/x",
         "correct": "B"
     },
-    "66": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 21,
@@ -803,7 +815,7 @@
         "D": "(0,0)",
         "correct": "D"
     },
-    "67": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 22,
@@ -815,7 +827,7 @@
         "D": "Độ dài bằng nhau",
         "correct": "A"
     },
-    "68": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 23,
@@ -827,7 +839,7 @@
         "D": "-sin(x)",
         "correct": "D"
     },
-    "69": {
+    {
         "subjectId": "toan",
         "examCode": 3,
         "displayNum": 24,
@@ -839,7 +851,7 @@
         "D": "0",
         "correct": "C"
     },
-    "70": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 1,
@@ -851,7 +863,7 @@
         "D": "Độ dài bằng nhau",
         "correct": "A"
     },
-    "71": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 2,
@@ -863,7 +875,7 @@
         "D": "9",
         "correct": "B"
     },
-    "72": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 3,
@@ -875,7 +887,7 @@
         "D": "Tuần hoàn",
         "correct": "D"
     },
-    "73": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 4,
@@ -887,7 +899,7 @@
         "D": "4",
         "correct": "C"
     },
-    "74": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 5,
@@ -899,7 +911,7 @@
         "D": "det(A) # 0",
         "correct": "A"
     },
-    "75": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 6,
@@ -911,7 +923,7 @@
         "D": "(0,0)",
         "correct": "D"
     },
-    "76": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 7,
@@ -923,7 +935,7 @@
         "D": "1\/x",
         "correct": "B"
     },
-    "77": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 8,
@@ -935,7 +947,7 @@
         "D": "y = x^3 + x",
         "correct": "D"
     },
-    "78": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 9,
@@ -947,7 +959,7 @@
         "D": "7",
         "correct": "B"
     },
-    "79": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 10,
@@ -959,7 +971,7 @@
         "D": "3",
         "correct": "A"
     },
-    "80": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 11,
@@ -971,7 +983,7 @@
         "D": "ln(x)",
         "correct": "C"
     },
-    "81": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 12,
@@ -983,7 +995,7 @@
         "D": "Không tồn tại",
         "correct": "A"
     },
-    "82": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 13,
@@ -995,7 +1007,7 @@
         "D": "A là ma trận hàng",
         "correct": "C"
     },
-    "83": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 14,
@@ -1007,7 +1019,7 @@
         "D": "Các phần tử dòng 1",
         "correct": "C"
     },
-    "84": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 15,
@@ -1019,7 +1031,7 @@
         "D": "ad + bc",
         "correct": "B"
     },
-    "85": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 16,
@@ -1031,7 +1043,7 @@
         "D": "Ma trận suy biến",
         "correct": "D"
     },
-    "86": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 17,
@@ -1043,7 +1055,7 @@
         "D": "Vô nghiệm",
         "correct": "B"
     },
-    "87": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 18,
@@ -1055,7 +1067,7 @@
         "D": "0",
         "correct": "D"
     },
-    "88": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 19,
@@ -1067,7 +1079,7 @@
         "D": "x",
         "correct": "C"
     },
-    "89": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 20,
@@ -1079,7 +1091,7 @@
         "D": "Không có",
         "correct": "A"
     },
-    "90": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 21,
@@ -1091,7 +1103,7 @@
         "D": "-sin(x)",
         "correct": "D"
     },
-    "91": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 22,
@@ -1103,7 +1115,7 @@
         "D": "Ma trận không",
         "correct": "A"
     },
-    "92": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 23,
@@ -1115,7 +1127,7 @@
         "D": "0",
         "correct": "C"
     },
-    "93": {
+    {
         "subjectId": "toan",
         "examCode": 4,
         "displayNum": 24,
@@ -1127,7 +1139,7 @@
         "D": "Bằng 1",
         "correct": "B"
     },
-    "94": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 1,
@@ -1139,7 +1151,7 @@
         "D": "echo",
         "correct": "D"
     },
-    "95": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 2,
@@ -1151,7 +1163,7 @@
         "D": "$_COOKIE",
         "correct": "B"
     },
-    "96": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 3,
@@ -1163,7 +1175,7 @@
         "D": "&",
         "correct": "A"
     },
-    "97": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 4,
@@ -1175,7 +1187,7 @@
         "D": "var",
         "correct": "A"
     },
-    "98": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 5,
@@ -1187,7 +1199,7 @@
         "D": "Vectơ định hướng",
         "correct": "C"
     },
-    "99": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 6,
@@ -1199,7 +1211,7 @@
         "D": "php.xml",
         "correct": "B"
     },
-    "100": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 7,
@@ -1211,7 +1223,7 @@
         "D": "join_array()",
         "correct": "A"
     },
-    "101": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 8,
@@ -1223,7 +1235,7 @@
         "D": "PUT",
         "correct": "C"
     },
-    "102": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 9,
@@ -1235,7 +1247,7 @@
         "D": "session_close()",
         "correct": "C"
     },
-    "103": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 10,
@@ -1247,7 +1259,7 @@
         "D": "size()",
         "correct": "A"
     },
-    "104": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 11,
@@ -1259,7 +1271,7 @@
         "D": "connect_mysqli()",
         "correct": "B"
     },
-    "105": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 12,
@@ -1271,7 +1283,7 @@
         "D": "do...while",
         "correct": "A"
     },
-    "106": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 13,
@@ -1283,7 +1295,7 @@
         "D": "]",
         "correct": "A"
     },
-    "107": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 14,
@@ -1295,7 +1307,7 @@
         "D": "md5()",
         "correct": "D"
     },
-    "108": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 15,
@@ -1307,7 +1319,7 @@
         "D": "check()",
         "correct": "B"
     },
-    "109": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 16,
@@ -1319,7 +1331,7 @@
         "D": "Chuyển hướng trang web",
         "correct": "D"
     },
-    "110": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 17,
@@ -1331,7 +1343,7 @@
         "D": ".",
         "correct": "D"
     },
-    "111": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 18,
@@ -1343,7 +1355,7 @@
         "D": "session_create()",
         "correct": "C"
     },
-    "112": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 19,
@@ -1355,7 +1367,7 @@
         "D": "json_encode()",
         "correct": "C"
     },
-    "113": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 20,
@@ -1367,7 +1379,7 @@
         "D": "Sắp xếp lại mảng",
         "correct": "B"
     },
-    "114": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 21,
@@ -1379,7 +1391,7 @@
         "D": "while...do",
         "correct": "C"
     },
-    "115": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 22,
@@ -1391,7 +1403,7 @@
         "D": "total()",
         "correct": "B"
     },
-    "116": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 23,
@@ -1403,7 +1415,7 @@
         "D": "<?php >",
         "correct": "A"
     },
-    "117": {
+    {
         "subjectId": "php",
         "examCode": 1,
         "displayNum": 24,
@@ -1415,7 +1427,7 @@
         "D": "Tạo một dòng chú thích ghi chú",
         "correct": "D"
     },
-    "118": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 1,
@@ -1427,7 +1439,7 @@
         "D": "size()",
         "correct": "A"
     },
-    "119": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 2,
@@ -1439,7 +1451,7 @@
         "D": "PUT",
         "correct": "C"
     },
-    "120": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 3,
@@ -1451,7 +1463,7 @@
         "D": "Sắp xếp lại mảng",
         "correct": "B"
     },
-    "121": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 4,
@@ -1463,7 +1475,7 @@
         "D": "Chuyển hướng trang web",
         "correct": "D"
     },
-    "122": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 5,
@@ -1475,7 +1487,7 @@
         "D": "&",
         "correct": "A"
     },
-    "123": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 6,
@@ -1487,7 +1499,7 @@
         "D": "md5()",
         "correct": "D"
     },
-    "124": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 7,
@@ -1499,7 +1511,7 @@
         "D": "check()",
         "correct": "B"
     },
-    "125": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 8,
@@ -1511,7 +1523,7 @@
         "D": "session_close()",
         "correct": "C"
     },
-    "126": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 9,
@@ -1523,7 +1535,7 @@
         "D": "session_create()",
         "correct": "C"
     },
-    "127": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 10,
@@ -1535,7 +1547,7 @@
         "D": "echo",
         "correct": "D"
     },
-    "128": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 11,
@@ -1547,7 +1559,7 @@
         "D": "total()",
         "correct": "B"
     },
-    "129": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 12,
@@ -1559,7 +1571,7 @@
         "D": "connect_mysqli()",
         "correct": "B"
     },
-    "130": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 13,
@@ -1571,7 +1583,7 @@
         "D": "json_encode()",
         "correct": "C"
     },
-    "131": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 14,
@@ -1583,7 +1595,7 @@
         "D": "Vectơ định hướng",
         "correct": "C"
     },
-    "132": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 15,
@@ -1595,7 +1607,7 @@
         "D": "while...do",
         "correct": "C"
     },
-    "133": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 16,
@@ -1607,7 +1619,7 @@
         "D": "$_COOKIE",
         "correct": "B"
     },
-    "134": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 17,
@@ -1619,7 +1631,7 @@
         "D": "]",
         "correct": "A"
     },
-    "135": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 18,
@@ -1631,7 +1643,7 @@
         "D": "<?php >",
         "correct": "A"
     },
-    "136": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 19,
@@ -1643,7 +1655,7 @@
         "D": ".",
         "correct": "D"
     },
-    "137": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 20,
@@ -1655,7 +1667,7 @@
         "D": "join_array()",
         "correct": "A"
     },
-    "138": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 21,
@@ -1667,7 +1679,7 @@
         "D": "var",
         "correct": "A"
     },
-    "139": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 22,
@@ -1679,7 +1691,7 @@
         "D": "php.xml",
         "correct": "B"
     },
-    "140": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 23,
@@ -1691,7 +1703,7 @@
         "D": "do...while",
         "correct": "A"
     },
-    "141": {
+    {
         "subjectId": "php",
         "examCode": 2,
         "displayNum": 24,
@@ -1703,7 +1715,7 @@
         "D": "Tạo một dòng chú thích ghi chú",
         "correct": "D"
     },
-    "142": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 1,
@@ -1715,7 +1727,7 @@
         "D": "<?php >",
         "correct": "A"
     },
-    "143": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 2,
@@ -1727,7 +1739,7 @@
         "D": "check()",
         "correct": "B"
     },
-    "144": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 3,
@@ -1739,7 +1751,7 @@
         "D": "join_array()",
         "correct": "A"
     },
-    "145": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 4,
@@ -1751,7 +1763,7 @@
         "D": "connect_mysqli()",
         "correct": "B"
     },
-    "146": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 5,
@@ -1763,7 +1775,7 @@
         "D": "do...while",
         "correct": "A"
     },
-    "147": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 6,
@@ -1775,7 +1787,7 @@
         "D": ".",
         "correct": "D"
     },
-    "148": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 7,
@@ -1787,7 +1799,7 @@
         "D": "json_encode()",
         "correct": "C"
     },
-    "149": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 8,
@@ -1799,7 +1811,7 @@
         "D": "session_create()",
         "correct": "C"
     },
-    "150": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 9,
@@ -1811,7 +1823,7 @@
         "D": "&",
         "correct": "A"
     },
-    "151": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 10,
@@ -1823,7 +1835,7 @@
         "D": "Sắp xếp lại mảng",
         "correct": "B"
     },
-    "152": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 11,
@@ -1835,7 +1847,7 @@
         "D": "]",
         "correct": "A"
     },
-    "153": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 12,
@@ -1847,7 +1859,7 @@
         "D": "Chuyển hướng trang web",
         "correct": "D"
     },
-    "154": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 13,
@@ -1859,7 +1871,7 @@
         "D": "size()",
         "correct": "A"
     },
-    "155": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 14,
@@ -1871,7 +1883,7 @@
         "D": "while...do",
         "correct": "C"
     },
-    "156": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 15,
@@ -1883,7 +1895,7 @@
         "D": "PUT",
         "correct": "C"
     },
-    "157": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 16,
@@ -1895,7 +1907,7 @@
         "D": "php.xml",
         "correct": "B"
     },
-    "158": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 17,
@@ -1907,7 +1919,7 @@
         "D": "$_COOKIE",
         "correct": "B"
     },
-    "159": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 18,
@@ -1919,7 +1931,7 @@
         "D": "echo",
         "correct": "D"
     },
-    "160": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 19,
@@ -1931,7 +1943,7 @@
         "D": "var",
         "correct": "A"
     },
-    "161": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 20,
@@ -1943,7 +1955,7 @@
         "D": "md5()",
         "correct": "D"
     },
-    "162": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 21,
@@ -1955,7 +1967,7 @@
         "D": "session_close()",
         "correct": "C"
     },
-    "163": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 22,
@@ -1967,7 +1979,7 @@
         "D": "Vectơ định hướng",
         "correct": "C"
     },
-    "164": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 23,
@@ -1979,7 +1991,7 @@
         "D": "total()",
         "correct": "B"
     },
-    "165": {
+    {
         "subjectId": "php",
         "examCode": 3,
         "displayNum": 24,
@@ -1991,7 +2003,7 @@
         "D": "Tạo một dòng chú thích ghi chú",
         "correct": "D"
     },
-    "166": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 1,
@@ -2003,7 +2015,7 @@
         "D": "md5()",
         "correct": "D"
     },
-    "167": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 2,
@@ -2015,7 +2027,7 @@
         "D": "]",
         "correct": "A"
     },
-    "168": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 3,
@@ -2027,7 +2039,7 @@
         "D": "json_encode()",
         "correct": "C"
     },
-    "169": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 4,
@@ -2039,7 +2051,7 @@
         "D": "$_COOKIE",
         "correct": "B"
     },
-    "170": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 5,
@@ -2051,7 +2063,7 @@
         "D": "echo",
         "correct": "D"
     },
-    "171": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 6,
@@ -2063,7 +2075,7 @@
         "D": "session_close()",
         "correct": "C"
     },
-    "172": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 7,
@@ -2075,7 +2087,7 @@
         "D": "&",
         "correct": "A"
     },
-    "173": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 8,
@@ -2087,7 +2099,7 @@
         "D": "var",
         "correct": "A"
     },
-    "174": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 9,
@@ -2099,7 +2111,7 @@
         "D": "Chuyển hướng trang web",
         "correct": "D"
     },
-    "175": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 10,
@@ -2111,7 +2123,7 @@
         "D": ".",
         "correct": "D"
     },
-    "176": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 11,
@@ -2123,7 +2135,7 @@
         "D": "Sắp xếp lại mảng",
         "correct": "B"
     },
-    "177": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 12,
@@ -2135,7 +2147,7 @@
         "D": "&",
         "correct": "A"
     },
-    "178": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 13,
@@ -2147,7 +2159,7 @@
         "D": "php.xml",
         "correct": "B"
     },
-    "179": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 14,
@@ -2159,7 +2171,7 @@
         "D": "check()",
         "correct": "B"
     },
-    "180": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 15,
@@ -2171,7 +2183,7 @@
         "D": "join_array()",
         "correct": "A"
     },
-    "181": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 16,
@@ -2183,7 +2195,7 @@
         "D": "PUT",
         "correct": "C"
     },
-    "182": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 17,
@@ -2195,7 +2207,7 @@
         "D": "do...while",
         "correct": "A"
     },
-    "183": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 18,
@@ -2207,7 +2219,7 @@
         "D": "session_create()",
         "correct": "C"
     },
-    "184": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 19,
@@ -2219,7 +2231,7 @@
         "D": "connect_mysqli()",
         "correct": "B"
     },
-    "185": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 20,
@@ -2231,7 +2243,7 @@
         "D": "<?php >",
         "correct": "A"
     },
-    "186": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 21,
@@ -2243,7 +2255,7 @@
         "D": "Vectơ định hướng",
         "correct": "C"
     },
-    "187": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 22,
@@ -2255,7 +2267,7 @@
         "D": "while...do",
         "correct": "C"
     },
-    "188": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 23,
@@ -2267,7 +2279,7 @@
         "D": "total()",
         "correct": "B"
     },
-    "189": {
+    {
         "subjectId": "php",
         "examCode": 4,
         "displayNum": 24,
@@ -2279,7 +2291,7 @@
         "D": "Tạo một dòng chú thích ghi chú",
         "correct": "D"
     },
-    "190": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 1,
@@ -2291,7 +2303,7 @@
         "D": "E(X) = Phương sai",
         "correct": "A"
     },
-    "191": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 2,
@@ -2303,7 +2315,7 @@
         "D": "Không xác định",
         "correct": "A"
     },
-    "192": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 3,
@@ -2315,7 +2327,7 @@
         "D": "Biến cố liên tục đồng đều",
         "correct": "B"
     },
-    "193": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 4,
@@ -2327,7 +2339,7 @@
         "D": "-1",
         "correct": "B"
     },
-    "194": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 5,
@@ -2339,7 +2351,7 @@
         "D": "8",
         "correct": "B"
     },
-    "195": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 6,
@@ -2351,7 +2363,7 @@
         "D": "1",
         "correct": "D"
     },
-    "196": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 7,
@@ -2363,7 +2375,7 @@
         "D": "2\/52",
         "correct": "A"
     },
-    "197": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 8,
@@ -2375,7 +2387,7 @@
         "D": "C^2",
         "correct": "A"
     },
-    "198": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 9,
@@ -2387,7 +2399,7 @@
         "D": "0",
         "correct": "C"
     },
-    "199": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 10,
@@ -2399,7 +2411,7 @@
         "D": "E(X^2) - [E(X)]^2",
         "correct": "D"
     },
-    "200": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 11,
@@ -2411,7 +2423,7 @@
         "D": "Đồng biến",
         "correct": "C"
     },
-    "201": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 12,
@@ -2423,7 +2435,7 @@
         "D": "1",
         "correct": "A"
     },
-    "202": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 13,
@@ -2435,7 +2447,7 @@
         "D": "Phân phối đều",
         "correct": "B"
     },
-    "203": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 14,
@@ -2447,7 +2459,7 @@
         "D": "-1",
         "correct": "C"
     },
-    "204": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 15,
@@ -2459,7 +2471,7 @@
         "D": "Chúng bằng nhau",
         "correct": "B"
     },
-    "205": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 16,
@@ -2471,7 +2483,7 @@
         "D": "Kỳ vọng toán học",
         "correct": "C"
     },
-    "206": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 17,
@@ -2483,7 +2495,7 @@
         "D": "Xác suất hoặc mật độ xác suất đạt cực đại lớn nhất",
         "correct": "D"
     },
-    "207": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 18,
@@ -2495,7 +2507,7 @@
         "D": "Có vô số kết quả mỗi phép thử",
         "correct": "C"
     },
-    "208": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 19,
@@ -2507,7 +2519,7 @@
         "D": "[-1, 1]",
         "correct": "D"
     },
-    "209": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 20,
@@ -2519,7 +2531,7 @@
         "D": "C",
         "correct": "D"
     },
-    "210": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 21,
@@ -2531,7 +2543,7 @@
         "D": "P(A) - P(B)",
         "correct": "A"
     },
-    "211": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 22,
@@ -2543,7 +2555,7 @@
         "D": "Vô cùng",
         "correct": "B"
     },
-    "212": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 23,
@@ -2555,7 +2567,7 @@
         "D": "[0, 1]",
         "correct": "D"
     },
-    "213": {
+    {
         "subjectId": "xstk",
         "examCode": 1,
         "displayNum": 24,
@@ -2567,7 +2579,7 @@
         "D": "Phân phối siêu bội",
         "correct": "C"
     },
-    "214": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 1,
@@ -2579,7 +2591,7 @@
         "D": "Không xác định",
         "correct": "A"
     },
-    "215": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 2,
@@ -2591,7 +2603,7 @@
         "D": "8",
         "correct": "B"
     },
-    "216": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 3,
@@ -2603,7 +2615,7 @@
         "D": "-1",
         "correct": "B"
     },
-    "217": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 4,
@@ -2615,7 +2627,7 @@
         "D": "Đồng biến",
         "correct": "C"
     },
-    "218": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 5,
@@ -2627,7 +2639,7 @@
         "D": "0",
         "correct": "C"
     },
-    "219": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 6,
@@ -2639,7 +2651,7 @@
         "D": "Xác suất hoặc mật độ xác suất đạt cực đại lớn nhất",
         "correct": "D"
     },
-    "220": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 7,
@@ -2651,7 +2663,7 @@
         "D": "Có vô số kết quả mỗi phép thử",
         "correct": "C"
     },
-    "221": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 8,
@@ -2663,7 +2675,7 @@
         "D": "C",
         "correct": "D"
     },
-    "222": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 9,
@@ -2675,7 +2687,7 @@
         "D": "E(X) = Phương sai",
         "correct": "A"
     },
-    "223": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 10,
@@ -2687,7 +2699,7 @@
         "D": "Biến cố liên tục đồng đều",
         "correct": "B"
     },
-    "224": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 11,
@@ -2699,7 +2711,7 @@
         "D": "C^2",
         "correct": "A"
     },
-    "225": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 12,
@@ -2711,7 +2723,7 @@
         "D": "E(X^2) - [E(X)]^2",
         "correct": "D"
     },
-    "226": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 13,
@@ -2723,7 +2735,7 @@
         "D": "Phân phối đều",
         "correct": "B"
     },
-    "227": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 14,
@@ -2735,7 +2747,7 @@
         "D": "Chúng bằng nhau",
         "correct": "B"
     },
-    "228": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 15,
@@ -2747,7 +2759,7 @@
         "D": "[-1, 1]",
         "correct": "D"
     },
-    "229": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 16,
@@ -2759,7 +2771,7 @@
         "D": "P(A) - P(B)",
         "correct": "A"
     },
-    "230": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 17,
@@ -2771,7 +2783,7 @@
         "D": "-1",
         "correct": "C"
     },
-    "231": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 18,
@@ -2783,7 +2795,7 @@
         "D": "[0, 1]",
         "correct": "D"
     },
-    "232": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 19,
@@ -2795,7 +2807,7 @@
         "D": "1",
         "correct": "D"
     },
-    "233": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 20,
@@ -2807,7 +2819,7 @@
         "D": "Kỳ vọng toán học",
         "correct": "C"
     },
-    "234": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 21,
@@ -2819,7 +2831,7 @@
         "D": "2\/52",
         "correct": "A"
     },
-    "235": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 22,
@@ -2831,7 +2843,7 @@
         "D": "1",
         "correct": "A"
     },
-    "236": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 23,
@@ -2843,7 +2855,7 @@
         "D": "Vô cùng",
         "correct": "B"
     },
-    "237": {
+    {
         "subjectId": "xstk",
         "examCode": 2,
         "displayNum": 24,
@@ -2855,7 +2867,7 @@
         "D": "Phân phối siêu bội",
         "correct": "C"
     },
-    "238": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 1,
@@ -2867,7 +2879,7 @@
         "D": "0",
         "correct": "C"
     },
-    "239": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 2,
@@ -2879,7 +2891,7 @@
         "D": "Phân phối đều",
         "correct": "B"
     },
-    "240": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 3,
@@ -2891,7 +2903,7 @@
         "D": "1",
         "correct": "D"
     },
-    "241": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 4,
@@ -2903,7 +2915,7 @@
         "D": "C^2",
         "correct": "A"
     },
-    "242": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 5,
@@ -2915,7 +2927,7 @@
         "D": "E(X^2) - [E(X)]^2",
         "correct": "D"
     },
-    "243": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 6,
@@ -2927,7 +2939,7 @@
         "D": "Kỳ vọng toán học",
         "correct": "C"
     },
-    "244": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 7,
@@ -2939,7 +2951,7 @@
         "D": "-1",
         "correct": "C"
     },
-    "245": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 8,
@@ -2951,7 +2963,7 @@
         "D": "Đồng biến",
         "correct": "C"
     },
-    "246": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 9,
@@ -2963,7 +2975,7 @@
         "D": "Xác suất hoặc mật độ xác suất đạt cực đại lớn nhất",
         "correct": "D"
     },
-    "247": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 10,
@@ -2975,7 +2987,7 @@
         "D": "[-1, 1]",
         "correct": "D"
     },
-    "248": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 11,
@@ -2987,7 +2999,7 @@
         "D": "E(X) = Phương sai",
         "correct": "A"
     },
-    "249": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 12,
@@ -2999,7 +3011,7 @@
         "D": "Có vô số kết quả mỗi phép thử",
         "correct": "C"
     },
-    "250": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 13,
@@ -3011,7 +3023,7 @@
         "D": "[0, 1]",
         "correct": "D"
     },
-    "251": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 14,
@@ -3023,7 +3035,7 @@
         "D": "Chúng bằng nhau",
         "correct": "B"
     },
-    "252": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 15,
@@ -3035,7 +3047,7 @@
         "D": "C",
         "correct": "D"
     },
-    "253": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 16,
@@ -3047,7 +3059,7 @@
         "D": "P(A) - P(B)",
         "correct": "A"
     },
-    "254": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 17,
@@ -3059,7 +3071,7 @@
         "D": "-1",
         "correct": "B"
     },
-    "255": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 18,
@@ -3071,7 +3083,7 @@
         "D": "Biến cố liên tục đồng đều",
         "correct": "B"
     },
-    "256": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 19,
@@ -3083,7 +3095,7 @@
         "D": "Không xác định",
         "correct": "A"
     },
-    "257": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 20,
@@ -3095,7 +3107,7 @@
         "D": "1",
         "correct": "A"
     },
-    "258": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 21,
@@ -3107,7 +3119,7 @@
         "D": "8",
         "correct": "B"
     },
-    "259": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 22,
@@ -3119,7 +3131,7 @@
         "D": "2\/52",
         "correct": "A"
     },
-    "260": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 23,
@@ -3131,7 +3143,7 @@
         "D": "Vô cùng",
         "correct": "B"
     },
-    "261": {
+    {
         "subjectId": "xstk",
         "examCode": 3,
         "displayNum": 24,
@@ -3143,7 +3155,7 @@
         "D": "Phân phối siêu bội",
         "correct": "C"
     },
-    "262": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 1,
@@ -3155,7 +3167,7 @@
         "D": "C^2",
         "correct": "A"
     },
-    "263": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 2,
@@ -3167,7 +3179,7 @@
         "D": "Biến cố liên tục đồng đều",
         "correct": "B"
     },
-    "264": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 3,
@@ -3179,7 +3191,7 @@
         "D": "Xác suất hoặc mật độ xác suất đạt cực đại lớn nhất",
         "correct": "D"
     },
-    "265": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 4,
@@ -3191,7 +3203,7 @@
         "D": "Không xác định",
         "correct": "A"
     },
-    "266": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 5,
@@ -3203,7 +3215,7 @@
         "D": "8",
         "correct": "B"
     },
-    "267": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 6,
@@ -3215,7 +3227,7 @@
         "D": "E(X) = Phương sai",
         "correct": "A"
     },
-    "268": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 7,
@@ -3227,7 +3239,7 @@
         "D": "[-1, 1]",
         "correct": "D"
     },
-    "269": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 8,
@@ -3239,7 +3251,7 @@
         "D": "E(X^2) - [E(X)]^2",
         "correct": "D"
     },
-    "270": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 9,
@@ -3251,7 +3263,7 @@
         "D": "Phân phối đều",
         "correct": "B"
     },
-    "271": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 10,
@@ -3263,7 +3275,7 @@
         "D": "Có vô số kết quả mỗi phép thử",
         "correct": "C"
     },
-    "272": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 11,
@@ -3275,7 +3287,7 @@
         "D": "Đồng biến",
         "correct": "C"
     },
-    "273": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 12,
@@ -3287,7 +3299,7 @@
         "D": "-1",
         "correct": "B"
     },
-    "274": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 13,
@@ -3299,7 +3311,7 @@
         "D": "[0, 1]",
         "correct": "D"
     },
-    "275": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 14,
@@ -3311,7 +3323,7 @@
         "D": "-1",
         "correct": "C"
     },
-    "276": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 15,
@@ -3323,7 +3335,7 @@
         "D": "C",
         "correct": "D"
     },
-    "277": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 16,
@@ -3335,7 +3347,7 @@
         "D": "P(A) - P(B)",
         "correct": "A"
     },
-    "278": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 17,
@@ -3347,7 +3359,7 @@
         "D": "Chúng bằng nhau",
         "correct": "B"
     },
-    "279": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 18,
@@ -3359,7 +3371,7 @@
         "D": "0",
         "correct": "C"
     },
-    "280": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 19,
@@ -3371,7 +3383,7 @@
         "D": "1",
         "correct": "D"
     },
-    "281": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 20,
@@ -3383,7 +3395,7 @@
         "D": "Kỳ vọng toán học",
         "correct": "C"
     },
-    "282": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 21,
@@ -3395,7 +3407,7 @@
         "D": "2\/52",
         "correct": "A"
     },
-    "283": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 22,
@@ -3407,7 +3419,7 @@
         "D": "1",
         "correct": "A"
     },
-    "284": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 23,
@@ -3419,7 +3431,7 @@
         "D": "Vô cùng",
         "correct": "B"
     },
-    "285": {
+    {
         "subjectId": "xstk",
         "examCode": 4,
         "displayNum": 24,
@@ -3431,7 +3443,7 @@
         "D": "Phân phối siêu bội",
         "correct": "C"
     },
-    "286": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 1,
@@ -3443,7 +3455,7 @@
         "D": "Tầng 4 (Transport)",
         "correct": "B"
     },
-    "287": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 2,
@@ -3455,7 +3467,7 @@
         "D": "Quản lý đóng ngắt cổng",
         "correct": "B"
     },
-    "288": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 3,
@@ -3467,7 +3479,7 @@
         "D": "6 tầng",
         "correct": "C"
     },
-    "289": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 4,
@@ -3479,7 +3491,7 @@
         "D": "Quản trị tường lửa từ xa",
         "correct": "A"
     },
-    "290": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 5,
@@ -3491,7 +3503,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "291": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 6,
@@ -3503,7 +3515,7 @@
         "D": "224.0.0.1",
         "correct": "C"
     },
-    "292": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 7,
@@ -3515,7 +3527,7 @@
         "D": "443",
         "correct": "D"
     },
-    "293": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 8,
@@ -3527,7 +3539,7 @@
         "D": "Truyền lại gói tin bị mất",
         "correct": "B"
     },
-    "294": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 9,
@@ -3539,7 +3551,7 @@
         "D": "SSH",
         "correct": "C"
     },
-    "295": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 10,
@@ -3551,7 +3563,7 @@
         "D": "Gửi thư điện tử",
         "correct": "C"
     },
-    "296": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 11,
@@ -3563,7 +3575,7 @@
         "D": "Tầng giao vận",
         "correct": "C"
     },
-    "297": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 12,
@@ -3575,7 +3587,7 @@
         "D": "Bit",
         "correct": "B"
     },
-    "298": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 13,
@@ -3587,7 +3599,7 @@
         "D": "Tầng liên kết dữ liệu",
         "correct": "B"
     },
-    "299": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 14,
@@ -3599,7 +3611,7 @@
         "D": "Tầng phiên",
         "correct": "B"
     },
-    "300": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 15,
@@ -3611,7 +3623,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "301": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 16,
@@ -3623,7 +3635,7 @@
         "D": "Network",
         "correct": "A"
     },
-    "302": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 17,
@@ -3635,7 +3647,7 @@
         "D": "23",
         "correct": "C"
     },
-    "303": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 18,
@@ -3647,7 +3659,7 @@
         "D": "255.255.255.255",
         "correct": "A"
     },
-    "304": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 19,
@@ -3659,7 +3671,7 @@
         "D": "ST Connector",
         "correct": "B"
     },
-    "305": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 20,
@@ -3671,7 +3683,7 @@
         "D": "Packet (Gói tin)",
         "correct": "D"
     },
-    "306": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 21,
@@ -3683,7 +3695,7 @@
         "D": "Tầng ứng dụng",
         "correct": "C"
     },
-    "307": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 22,
@@ -3695,7 +3707,7 @@
         "D": "Transport",
         "correct": "A"
     },
-    "308": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 23,
@@ -3707,7 +3719,7 @@
         "D": "Physical (Vật lý)",
         "correct": "D"
     },
-    "309": {
+    {
         "subjectId": "mmt",
         "examCode": 1,
         "displayNum": 24,
@@ -3719,7 +3731,7 @@
         "D": "Network Card",
         "correct": "C"
     },
-    "310": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 1,
@@ -3731,7 +3743,7 @@
         "D": "Quản lý đóng ngắt cổng",
         "correct": "B"
     },
-    "311": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 2,
@@ -3743,7 +3755,7 @@
         "D": "Quản trị tường lửa từ xa",
         "correct": "A"
     },
-    "312": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 3,
@@ -3755,7 +3767,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "313": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 4,
@@ -3767,7 +3779,7 @@
         "D": "Network",
         "correct": "A"
     },
-    "314": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 5,
@@ -3779,7 +3791,7 @@
         "D": "Tầng 4 (Transport)",
         "correct": "B"
     },
-    "315": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 6,
@@ -3791,7 +3803,7 @@
         "D": "Tầng phiên",
         "correct": "B"
     },
-    "316": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 7,
@@ -3803,7 +3815,7 @@
         "D": "Gửi thư điện tử",
         "correct": "C"
     },
-    "317": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 8,
@@ -3815,7 +3827,7 @@
         "D": "ST Connector",
         "correct": "B"
     },
-    "318": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 9,
@@ -3827,7 +3839,7 @@
         "D": "255.255.255.255",
         "correct": "A"
     },
-    "319": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 10,
@@ -3839,7 +3851,7 @@
         "D": "6 tầng",
         "correct": "C"
     },
-    "320": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 11,
@@ -3851,7 +3863,7 @@
         "D": "224.0.0.1",
         "correct": "C"
     },
-    "321": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 12,
@@ -3863,7 +3875,7 @@
         "D": "Tầng liên kết dữ liệu",
         "correct": "B"
     },
-    "322": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 13,
@@ -3875,7 +3887,7 @@
         "D": "23",
         "correct": "C"
     },
-    "323": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 14,
@@ -3887,7 +3899,7 @@
         "D": "Truyền lại gói tin bị mất",
         "correct": "B"
     },
-    "324": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 15,
@@ -3899,7 +3911,7 @@
         "D": "Tầng ứng dụng",
         "correct": "C"
     },
-    "325": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 16,
@@ -3911,7 +3923,7 @@
         "D": "443",
         "correct": "D"
     },
-    "326": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 17,
@@ -3923,7 +3935,7 @@
         "D": "Tầng giao vận",
         "correct": "C"
     },
-    "327": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 18,
@@ -3935,7 +3947,7 @@
         "D": "Physical (Vật lý)",
         "correct": "D"
     },
-    "328": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 19,
@@ -3947,7 +3959,7 @@
         "D": "Transport",
         "correct": "A"
     },
-    "329": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 20,
@@ -3959,7 +3971,7 @@
         "D": "Packet (Gói tin)",
         "correct": "D"
     },
-    "330": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 21,
@@ -3971,7 +3983,7 @@
         "D": "SSH",
         "correct": "C"
     },
-    "331": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 22,
@@ -3983,7 +3995,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "332": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 23,
@@ -3995,7 +4007,7 @@
         "D": "Bit",
         "correct": "B"
     },
-    "333": {
+    {
         "subjectId": "mmt",
         "examCode": 2,
         "displayNum": 24,
@@ -4007,7 +4019,7 @@
         "D": "Network Card",
         "correct": "C"
     },
-    "334": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 1,
@@ -4019,7 +4031,7 @@
         "D": "255.255.255.255",
         "correct": "A"
     },
-    "335": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 2,
@@ -4031,7 +4043,7 @@
         "D": "Truyền lại gói tin bị mất",
         "correct": "B"
     },
-    "336": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 3,
@@ -4043,7 +4055,7 @@
         "D": "23",
         "correct": "C"
     },
-    "337": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 4,
@@ -4055,7 +4067,7 @@
         "D": "Tầng giao vận",
         "correct": "C"
     },
-    "338": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 5,
@@ -4067,7 +4079,7 @@
         "D": "SSH",
         "correct": "C"
     },
-    "339": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 6,
@@ -4079,7 +4091,7 @@
         "D": "Gửi thư điện tử",
         "correct": "C"
     },
-    "340": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 7,
@@ -4091,7 +4103,7 @@
         "D": "6 tầng",
         "correct": "C"
     },
-    "341": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 8,
@@ -4103,7 +4115,7 @@
         "D": "Packet (Gói tin)",
         "correct": "D"
     },
-    "342": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 9,
@@ -4115,7 +4127,7 @@
         "D": "Network",
         "correct": "A"
     },
-    "343": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 10,
@@ -4127,7 +4139,7 @@
         "D": "Quản lý đóng ngắt cổng",
         "correct": "B"
     },
-    "344": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 11,
@@ -4139,7 +4151,7 @@
         "D": "Tầng liên kết dữ liệu",
         "correct": "B"
     },
-    "345": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 12,
@@ -4151,7 +4163,7 @@
         "D": "Physical (Vật lý)",
         "correct": "D"
     },
-    "346": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 13,
@@ -4163,7 +4175,7 @@
         "D": "Tầng phiên",
         "correct": "B"
     },
-    "347": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 14,
@@ -4175,7 +4187,7 @@
         "D": "443",
         "correct": "D"
     },
-    "348": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 15,
@@ -4187,7 +4199,7 @@
         "D": "Tầng 4 (Transport)",
         "correct": "B"
     },
-    "349": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 16,
@@ -4199,7 +4211,7 @@
         "D": "Tầng ứng dụng",
         "correct": "C"
     },
-    "350": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 17,
@@ -4211,7 +4223,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "351": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 18,
@@ -4223,7 +4235,7 @@
         "D": "Bit",
         "correct": "B"
     },
-    "352": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 19,
@@ -4235,7 +4247,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "353": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 20,
@@ -4247,7 +4259,7 @@
         "D": "Transport",
         "correct": "A"
     },
-    "354": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 21,
@@ -4259,7 +4271,7 @@
         "D": "224.0.0.1",
         "correct": "C"
     },
-    "355": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 22,
@@ -4271,7 +4283,7 @@
         "D": "Quản trị tường lửa từ xa",
         "correct": "A"
     },
-    "356": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 23,
@@ -4283,7 +4295,7 @@
         "D": "ST Connector",
         "correct": "B"
     },
-    "357": {
+    {
         "subjectId": "mmt",
         "examCode": 3,
         "displayNum": 24,
@@ -4295,7 +4307,7 @@
         "D": "Network Card",
         "correct": "C"
     },
-    "358": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 1,
@@ -4307,7 +4319,7 @@
         "D": "Tầng phiên",
         "correct": "B"
     },
-    "359": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 2,
@@ -4319,7 +4331,7 @@
         "D": "224.0.0.1",
         "correct": "C"
     },
-    "360": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 3,
@@ -4331,7 +4343,7 @@
         "D": "Truyền lại gói tin bị mất",
         "correct": "B"
     },
-    "361": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 4,
@@ -4343,7 +4355,7 @@
         "D": "6 tầng",
         "correct": "C"
     },
-    "362": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 5,
@@ -4355,7 +4367,7 @@
         "D": "SSH",
         "correct": "C"
     },
-    "363": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 6,
@@ -4367,7 +4379,7 @@
         "D": "443",
         "correct": "D"
     },
-    "364": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 7,
@@ -4379,7 +4391,7 @@
         "D": "Gửi thư điện tử",
         "correct": "C"
     },
-    "365": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 8,
@@ -4391,7 +4403,7 @@
         "D": "Bit",
         "correct": "B"
     },
-    "366": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 9,
@@ -4403,7 +4415,7 @@
         "D": "Tầng 4 (Transport)",
         "correct": "B"
     },
-    "367": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 10,
@@ -4415,7 +4427,7 @@
         "D": "Transport",
         "correct": "A"
     },
-    "368": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 11,
@@ -4427,7 +4439,7 @@
         "D": "Network",
         "correct": "A"
     },
-    "369": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 12,
@@ -4439,7 +4451,7 @@
         "D": "Packet (Gói tin)",
         "correct": "D"
     },
-    "370": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 13,
@@ -4451,7 +4463,7 @@
         "D": "Tầng liên kết dữ liệu",
         "correct": "B"
     },
-    "371": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 14,
@@ -4463,7 +4475,7 @@
         "D": "Quản lý đóng ngắt cổng",
         "correct": "B"
     },
-    "372": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 15,
@@ -4475,7 +4487,7 @@
         "D": "23",
         "correct": "C"
     },
-    "373": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 16,
@@ -4487,7 +4499,7 @@
         "D": "Quản trị tường lửa từ xa",
         "correct": "A"
     },
-    "374": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 17,
@@ -4499,7 +4511,7 @@
         "D": "Tầng giao vận",
         "correct": "C"
     },
-    "375": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 18,
@@ -4511,7 +4523,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "376": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 19,
@@ -4523,7 +4535,7 @@
         "D": "128 bit",
         "correct": "B"
     },
-    "377": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 20,
@@ -4535,7 +4547,7 @@
         "D": "255.255.255.255",
         "correct": "A"
     },
-    "378": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 21,
@@ -4547,7 +4559,7 @@
         "D": "Tầng ứng dụng",
         "correct": "C"
     },
-    "379": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 22,
@@ -4559,7 +4571,7 @@
         "D": "Physical (Vật lý)",
         "correct": "D"
     },
-    "380": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 23,
@@ -4571,7 +4583,7 @@
         "D": "ST Connector",
         "correct": "B"
     },
-    "381": {
+    {
         "subjectId": "mmt",
         "examCode": 4,
         "displayNum": 24,
@@ -4583,7 +4595,7 @@
         "D": "Network Card",
         "correct": "C"
     },
-    "382": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 1,
@@ -4595,7 +4607,7 @@
         "D": "OPEN",
         "correct": "C"
     },
-    "383": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 2,
@@ -4607,7 +4619,7 @@
         "D": "IF",
         "correct": "C"
     },
-    "384": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 3,
@@ -4619,7 +4631,7 @@
         "D": "Foreign Key (Khóa ngoại)",
         "correct": "D"
     },
-    "385": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 4,
@@ -4631,7 +4643,7 @@
         "D": "SORT",
         "correct": "A"
     },
-    "386": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 5,
@@ -4643,7 +4655,7 @@
         "D": "DOWN",
         "correct": "C"
     },
-    "387": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 6,
@@ -4655,7 +4667,7 @@
         "D": "DROP ROW",
         "correct": "C"
     },
-    "388": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 7,
@@ -4667,7 +4679,7 @@
         "D": "MATCH",
         "correct": "B"
     },
-    "389": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 8,
@@ -4679,7 +4691,7 @@
         "D": "BETWEEN",
         "correct": "A"
     },
-    "390": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 9,
@@ -4691,7 +4703,7 @@
         "D": "UNION",
         "correct": "B"
     },
-    "391": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 10,
@@ -4703,7 +4715,7 @@
         "D": "NUMBER()",
         "correct": "B"
     },
-    "392": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 11,
@@ -4715,7 +4727,7 @@
         "D": "ORDER BY",
         "correct": "A"
     },
-    "393": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 12,
@@ -4727,7 +4739,7 @@
         "D": "&",
         "correct": "B"
     },
-    "394": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 13,
@@ -4739,7 +4751,7 @@
         "D": "JOIN BY",
         "correct": "C"
     },
-    "395": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 14,
@@ -4751,7 +4763,7 @@
         "D": "CHANGE TABLE",
         "correct": "B"
     },
-    "396": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 15,
@@ -4763,7 +4775,7 @@
         "D": "CREATE",
         "correct": "B"
     },
-    "397": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 16,
@@ -4775,7 +4787,7 @@
         "D": "ADD DATABASE",
         "correct": "B"
     },
-    "398": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 17,
@@ -4787,7 +4799,7 @@
         "D": "UPDATE",
         "correct": "D"
     },
-    "399": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 18,
@@ -4799,7 +4811,7 @@
         "D": "DEFAULT",
         "correct": "A"
     },
-    "400": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 19,
@@ -4811,7 +4823,7 @@
         "D": "MAKE TABLE",
         "correct": "A"
     },
-    "401": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 20,
@@ -4823,7 +4835,7 @@
         "D": "DROP TABLE",
         "correct": "D"
     },
-    "402": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 21,
@@ -4835,7 +4847,7 @@
         "D": "MINUS",
         "correct": "A"
     },
-    "403": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 22,
@@ -4847,7 +4859,7 @@
         "D": "SINGLE",
         "correct": "B"
     },
-    "404": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 23,
@@ -4859,7 +4871,7 @@
         "D": "COUNT()",
         "correct": "B"
     },
-    "405": {
+    {
         "subjectId": "csdl",
         "examCode": 1,
         "displayNum": 24,
@@ -4871,7 +4883,7 @@
         "D": "CHECK KEY",
         "correct": "C"
     },
-    "406": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 1,
@@ -4883,7 +4895,7 @@
         "D": "IF",
         "correct": "C"
     },
-    "407": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 2,
@@ -4895,7 +4907,7 @@
         "D": "Foreign Key (Khóa ngoại)",
         "correct": "D"
     },
-    "408": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 3,
@@ -4907,7 +4919,7 @@
         "D": "SORT",
         "correct": "A"
     },
-    "409": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 4,
@@ -4919,7 +4931,7 @@
         "D": "BETWEEN",
         "correct": "A"
     },
-    "410": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 5,
@@ -4931,7 +4943,7 @@
         "D": "OPEN",
         "correct": "C"
     },
-    "411": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 6,
@@ -4943,7 +4955,7 @@
         "D": "DROP ROW",
         "correct": "C"
     },
-    "412": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 7,
@@ -4955,7 +4967,7 @@
         "D": "UNION",
         "correct": "B"
     },
-    "413": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 8,
@@ -4967,7 +4979,7 @@
         "D": "MATCH",
         "correct": "B"
     },
-    "414": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 9,
@@ -4979,7 +4991,7 @@
         "D": "ORDER BY",
         "correct": "A"
     },
-    "415": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 10,
@@ -4991,7 +5003,7 @@
         "D": "JOIN BY",
         "correct": "C"
     },
-    "416": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 11,
@@ -5003,7 +5015,7 @@
         "D": "DOWN",
         "correct": "C"
     },
-    "417": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 12,
@@ -5015,7 +5027,7 @@
         "D": "NUMBER()",
         "correct": "B"
     },
-    "418": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 13,
@@ -5027,7 +5039,7 @@
         "D": "&",
         "correct": "B"
     },
-    "419": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 14,
@@ -5039,7 +5051,7 @@
         "D": "UPDATE",
         "correct": "D"
     },
-    "420": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 15,
@@ -5051,7 +5063,7 @@
         "D": "CHANGE TABLE",
         "correct": "B"
     },
-    "421": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 16,
@@ -5063,7 +5075,7 @@
         "D": "MAKE TABLE",
         "correct": "A"
     },
-    "422": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 17,
@@ -5075,7 +5087,7 @@
         "D": "CREATE",
         "correct": "B"
     },
-    "423": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 18,
@@ -5087,7 +5099,7 @@
         "D": "DROP TABLE",
         "correct": "D"
     },
-    "424": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 19,
@@ -5099,7 +5111,7 @@
         "D": "DEFAULT",
         "correct": "A"
     },
-    "425": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 20,
@@ -5111,7 +5123,7 @@
         "D": "SINGLE",
         "correct": "B"
     },
-    "426": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 21,
@@ -5123,7 +5135,7 @@
         "D": "ADD DATABASE",
         "correct": "B"
     },
-    "427": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 22,
@@ -5135,7 +5147,7 @@
         "D": "MINUS",
         "correct": "A"
     },
-    "428": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 23,
@@ -5147,7 +5159,7 @@
         "D": "COUNT()",
         "correct": "B"
     },
-    "429": {
+    {
         "subjectId": "csdl",
         "examCode": 2,
         "displayNum": 24,
@@ -5159,7 +5171,7 @@
         "D": "CHECK KEY",
         "correct": "C"
     },
-    "430": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 1,
@@ -5171,7 +5183,7 @@
         "D": "CHANGE TABLE",
         "correct": "B"
     },
-    "431": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 2,
@@ -5183,7 +5195,7 @@
         "D": "SINGLE",
         "correct": "B"
     },
-    "432": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 3,
@@ -5195,7 +5207,7 @@
         "D": "NUMBER()",
         "correct": "B"
     },
-    "433": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 4,
@@ -5207,7 +5219,7 @@
         "D": "Foreign Key (Khóa ngoại)",
         "correct": "D"
     },
-    "434": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 5,
@@ -5219,7 +5231,7 @@
         "D": "UPDATE",
         "correct": "D"
     },
-    "435": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 6,
@@ -5231,7 +5243,7 @@
         "D": "JOIN BY",
         "correct": "C"
     },
-    "436": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 7,
@@ -5243,7 +5255,7 @@
         "D": "MINUS",
         "correct": "A"
     },
-    "437": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 8,
@@ -5255,7 +5267,7 @@
         "D": "MATCH",
         "correct": "B"
     },
-    "438": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 9,
@@ -5267,7 +5279,7 @@
         "D": "OPEN",
         "correct": "C"
     },
-    "439": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 10,
@@ -5279,7 +5291,7 @@
         "D": "CREATE",
         "correct": "B"
     },
-    "440": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 11,
@@ -5291,7 +5303,7 @@
         "D": "&",
         "correct": "B"
     },
-    "441": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 12,
@@ -5303,7 +5315,7 @@
         "D": "UNION",
         "correct": "B"
     },
-    "442": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 13,
@@ -5315,7 +5327,7 @@
         "D": "DROP ROW",
         "correct": "C"
     },
-    "443": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 14,
@@ -5327,7 +5339,7 @@
         "D": "DEFAULT",
         "correct": "A"
     },
-    "444": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 15,
@@ -5339,7 +5351,7 @@
         "D": "SORT",
         "correct": "A"
     },
-    "445": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 16,
@@ -5351,7 +5363,7 @@
         "D": "MAKE TABLE",
         "correct": "A"
     },
-    "446": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 17,
@@ -5363,7 +5375,7 @@
         "D": "ORDER BY",
         "correct": "A"
     },
-    "447": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 18,
@@ -5375,7 +5387,7 @@
         "D": "BETWEEN",
         "correct": "A"
     },
-    "448": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 19,
@@ -5387,7 +5399,7 @@
         "D": "IF",
         "correct": "C"
     },
-    "449": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 20,
@@ -5399,7 +5411,7 @@
         "D": "DOWN",
         "correct": "C"
     },
-    "450": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 21,
@@ -5411,7 +5423,7 @@
         "D": "ADD DATABASE",
         "correct": "B"
     },
-    "451": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 22,
@@ -5423,7 +5435,7 @@
         "D": "DROP TABLE",
         "correct": "D"
     },
-    "452": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 23,
@@ -5435,7 +5447,7 @@
         "D": "COUNT()",
         "correct": "B"
     },
-    "453": {
+    {
         "subjectId": "csdl",
         "examCode": 3,
         "displayNum": 24,
@@ -5447,7 +5459,7 @@
         "D": "CHECK KEY",
         "correct": "C"
     },
-    "454": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 1,
@@ -5459,7 +5471,7 @@
         "D": "CREATE",
         "correct": "B"
     },
-    "455": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 2,
@@ -5471,7 +5483,7 @@
         "D": "&",
         "correct": "B"
     },
-    "456": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 3,
@@ -5483,7 +5495,7 @@
         "D": "SINGLE",
         "correct": "B"
     },
-    "457": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 4,
@@ -5495,7 +5507,7 @@
         "D": "Foreign Key (Khóa ngoại)",
         "correct": "D"
     },
-    "458": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 5,
@@ -5507,7 +5519,7 @@
         "D": "ORDER BY",
         "correct": "A"
     },
-    "459": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 6,
@@ -5519,7 +5531,7 @@
         "D": "DEFAULT",
         "correct": "A"
     },
-    "460": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 7,
@@ -5531,7 +5543,7 @@
         "D": "UPDATE",
         "correct": "D"
     },
-    "461": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 8,
@@ -5543,7 +5555,7 @@
         "D": "JOIN BY",
         "correct": "C"
     },
-    "462": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 9,
@@ -5555,7 +5567,7 @@
         "D": "OPEN",
         "correct": "C"
     },
-    "463": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 10,
@@ -5567,7 +5579,7 @@
         "D": "MATCH",
         "correct": "B"
     },
-    "464": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 11,
@@ -5579,7 +5591,7 @@
         "D": "UNION",
         "correct": "B"
     },
-    "465": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 12,
@@ -5591,7 +5603,7 @@
         "D": "DROP ROW",
         "correct": "C"
     },
-    "466": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 13,
@@ -5603,7 +5615,7 @@
         "D": "SORT",
         "correct": "A"
     },
-    "467": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 14,
@@ -5615,7 +5627,7 @@
         "D": "NUMBER()",
         "correct": "B"
     },
-    "468": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 15,
@@ -5627,7 +5639,7 @@
         "D": "CHANGE TABLE",
         "correct": "B"
     },
-    "469": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 16,
@@ -5639,7 +5651,7 @@
         "D": "MAKE TABLE",
         "correct": "A"
     },
-    "470": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 17,
@@ -5651,7 +5663,7 @@
         "D": "BETWEEN",
         "correct": "A"
     },
-    "471": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 18,
@@ -5663,7 +5675,7 @@
         "D": "IF",
         "correct": "C"
     },
-    "472": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 19,
@@ -5675,7 +5687,7 @@
         "D": "DOWN",
         "correct": "C"
     },
-    "473": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 20,
@@ -5687,7 +5699,7 @@
         "D": "MINUS",
         "correct": "A"
     },
-    "474": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 21,
@@ -5699,7 +5711,7 @@
         "D": "ADD DATABASE",
         "correct": "B"
     },
-    "475": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 22,
@@ -5711,7 +5723,7 @@
         "D": "DROP TABLE",
         "correct": "D"
     },
-    "476": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 23,
@@ -5723,7 +5735,7 @@
         "D": "COUNT()",
         "correct": "B"
     },
-    "477": {
+    {
         "subjectId": "csdl",
         "examCode": 4,
         "displayNum": 24,
@@ -5735,7 +5747,7 @@
         "D": "CHECK KEY",
         "correct": "C"
     },
-    "478": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 1,
@@ -5747,7 +5759,7 @@
         "D": "Intellectual Technology",
         "correct": "A"
     },
-    "479": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 2,
@@ -5759,7 +5771,7 @@
         "D": "Phần mềm diệt virus",
         "correct": "A"
     },
-    "480": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 3,
@@ -5771,7 +5783,7 @@
         "D": "Hệ thống phân tán",
         "correct": "A"
     },
-    "481": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 4,
@@ -5783,7 +5795,7 @@
         "D": "Mạng máy tính",
         "correct": "B"
     },
-    "482": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 5,
@@ -5795,7 +5807,7 @@
         "D": "Đầu nối cáp quang",
         "correct": "A"
     },
-    "483": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 6,
@@ -5807,7 +5819,7 @@
         "D": "Real Active Memory",
         "correct": "A"
     },
-    "484": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 7,
@@ -5819,7 +5831,7 @@
         "D": "Mã máy ngầm",
         "correct": "A"
     },
-    "485": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 8,
@@ -5831,7 +5843,7 @@
         "D": "Mô hình mạng",
         "correct": "A"
     },
-    "486": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 9,
@@ -5843,7 +5855,7 @@
         "D": "Dữ liệu đầu ra",
         "correct": "A"
     },
-    "487": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 10,
@@ -5855,7 +5867,7 @@
         "D": "Update",
         "correct": "B"
     },
-    "488": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 11,
@@ -5867,7 +5879,7 @@
         "D": "Internet",
         "correct": "A"
     },
-    "489": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 12,
@@ -5879,7 +5891,7 @@
         "D": "Load\/Store",
         "correct": "A"
     },
-    "490": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 13,
@@ -5891,7 +5903,7 @@
         "D": "Malware",
         "correct": "C"
     },
-    "491": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 14,
@@ -5903,7 +5915,7 @@
         "D": "Dung lượng ổ cứng",
         "correct": "A"
     },
-    "492": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 15,
@@ -5915,7 +5927,7 @@
         "D": "Delete",
         "correct": "B"
     },
-    "493": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 16,
@@ -5927,7 +5939,7 @@
         "D": "Shutdown",
         "correct": "B"
     },
-    "494": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 17,
@@ -5939,7 +5951,7 @@
         "D": "Trình gỡ lỗi",
         "correct": "A"
     },
-    "495": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 18,
@@ -5951,7 +5963,7 @@
         "D": "Quản trị viên hệ thống",
         "correct": "A"
     },
-    "496": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 19,
@@ -5963,7 +5975,7 @@
         "D": "255.0.0.0",
         "correct": "C"
     },
-    "497": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 20,
@@ -5975,7 +5987,7 @@
         "D": "Save",
         "correct": "B"
     },
-    "498": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 21,
@@ -5987,7 +5999,7 @@
         "D": "Quản trị cơ sở dữ liệu",
         "correct": "A"
     },
-    "499": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 22,
@@ -5999,7 +6011,7 @@
         "D": "GUI",
         "correct": "A"
     },
-    "500": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 23,
@@ -6011,7 +6023,7 @@
         "D": "Hàm toán học",
         "correct": "A"
     },
-    "501": {
+    {
         "subjectId": "ta",
         "examCode": 1,
         "displayNum": 24,
@@ -6023,7 +6035,7 @@
         "D": "Câu lệnh điều kiện",
         "correct": "B"
     },
-    "502": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 1,
@@ -6035,7 +6047,7 @@
         "D": "Phần mềm diệt virus",
         "correct": "A"
     },
-    "503": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 2,
@@ -6047,7 +6059,7 @@
         "D": "Hệ thống phân tán",
         "correct": "A"
     },
-    "504": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 3,
@@ -6059,7 +6071,7 @@
         "D": "Mạng máy tính",
         "correct": "B"
     },
-    "505": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 4,
@@ -6071,7 +6083,7 @@
         "D": "Quản trị viên hệ thống",
         "correct": "A"
     },
-    "506": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 5,
@@ -6083,7 +6095,7 @@
         "D": "Intellectual Technology",
         "correct": "A"
     },
-    "507": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 6,
@@ -6095,7 +6107,7 @@
         "D": "Real Active Memory",
         "correct": "A"
     },
-    "508": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 7,
@@ -6107,7 +6119,7 @@
         "D": "Dữ liệu đầu ra",
         "correct": "A"
     },
-    "509": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 8,
@@ -6119,7 +6131,7 @@
         "D": "255.0.0.0",
         "correct": "C"
     },
-    "510": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 9,
@@ -6131,7 +6143,7 @@
         "D": "Internet",
         "correct": "A"
     },
-    "511": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 10,
@@ -6143,7 +6155,7 @@
         "D": "Đầu nối cáp quang",
         "correct": "A"
     },
-    "512": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 11,
@@ -6155,7 +6167,7 @@
         "D": "Update",
         "correct": "B"
     },
-    "513": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 12,
@@ -6167,7 +6179,7 @@
         "D": "Load\/Store",
         "correct": "A"
     },
-    "514": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 13,
@@ -6179,7 +6191,7 @@
         "D": "Mã máy ngầm",
         "correct": "A"
     },
-    "515": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 14,
@@ -6191,7 +6203,7 @@
         "D": "Malware",
         "correct": "C"
     },
-    "516": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 15,
@@ -6203,7 +6215,7 @@
         "D": "Dung lượng ổ cứng",
         "correct": "A"
     },
-    "517": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 16,
@@ -6215,7 +6227,7 @@
         "D": "Shutdown",
         "correct": "B"
     },
-    "518": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 17,
@@ -6227,7 +6239,7 @@
         "D": "Delete",
         "correct": "B"
     },
-    "519": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 18,
@@ -6239,7 +6251,7 @@
         "D": "Mô hình mạng",
         "correct": "A"
     },
-    "520": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 19,
@@ -6251,7 +6263,7 @@
         "D": "Trình gỡ lỗi",
         "correct": "A"
     },
-    "521": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 20,
@@ -6263,7 +6275,7 @@
         "D": "Save",
         "correct": "B"
     },
-    "522": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 21,
@@ -6275,7 +6287,7 @@
         "D": "Quản trị cơ sở dữ liệu",
         "correct": "A"
     },
-    "523": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 22,
@@ -6287,7 +6299,7 @@
         "D": "GUI",
         "correct": "A"
     },
-    "524": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 23,
@@ -6299,7 +6311,7 @@
         "D": "Hàm toán học",
         "correct": "A"
     },
-    "525": {
+    {
         "subjectId": "ta",
         "examCode": 2,
         "displayNum": 24,
@@ -6311,7 +6323,7 @@
         "D": "Câu lệnh điều kiện",
         "correct": "B"
     },
-    "526": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 1,
@@ -6323,7 +6335,7 @@
         "D": "Mô hình mạng",
         "correct": "A"
     },
-    "527": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 2,
@@ -6335,7 +6347,7 @@
         "D": "Internet",
         "correct": "A"
     },
-    "528": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 3,
@@ -6347,7 +6359,7 @@
         "D": "Trình gỡ lỗi",
         "correct": "A"
     },
-    "529": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 4,
@@ -6359,7 +6371,7 @@
         "D": "Quản trị viên hệ thống",
         "correct": "A"
     },
-    "530": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 5,
@@ -6371,7 +6383,7 @@
         "D": "Mã máy ngầm",
         "correct": "A"
     },
-    "531": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 6,
@@ -6383,7 +6395,7 @@
         "D": "Dữ liệu đầu ra",
         "correct": "A"
     },
-    "532": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 7,
@@ -6395,7 +6407,7 @@
         "D": "Intellectual Technology",
         "correct": "A"
     },
-    "533": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 8,
@@ -6407,7 +6419,7 @@
         "D": "Đầu nối cáp quang",
         "correct": "A"
     },
-    "534": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 9,
@@ -6419,7 +6431,7 @@
         "D": "255.0.0.0",
         "correct": "C"
     },
-    "535": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 10,
@@ -6431,7 +6443,7 @@
         "D": "Phần mềm diệt virus",
         "correct": "A"
     },
-    "536": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 11,
@@ -6443,7 +6455,7 @@
         "D": "Hệ thống phân tán",
         "correct": "A"
     },
-    "537": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 12,
@@ -6455,7 +6467,7 @@
         "D": "Mạng máy tính",
         "correct": "B"
     },
-    "538": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 13,
@@ -6467,7 +6479,7 @@
         "D": "Real Active Memory",
         "correct": "A"
     },
-    "539": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 14,
@@ -6479,7 +6491,7 @@
         "D": "Update",
         "correct": "B"
     },
-    "540": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 15,
@@ -6491,7 +6503,7 @@
         "D": "Load\/Store",
         "correct": "A"
     },
-    "541": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 16,
@@ -6503,7 +6515,7 @@
         "D": "Malware",
         "correct": "C"
     },
-    "542": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 17,
@@ -6515,7 +6527,7 @@
         "D": "Dung lượng ổ cứng",
         "correct": "A"
     },
-    "543": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 18,
@@ -6527,7 +6539,7 @@
         "D": "Delete",
         "correct": "B"
     },
-    "544": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 19,
@@ -6539,7 +6551,7 @@
         "D": "Shutdown",
         "correct": "B"
     },
-    "545": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 20,
@@ -6551,7 +6563,7 @@
         "D": "Save",
         "correct": "B"
     },
-    "546": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 21,
@@ -6563,7 +6575,7 @@
         "D": "Quản trị cơ sở dữ liệu",
         "correct": "A"
     },
-    "547": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 22,
@@ -6575,7 +6587,7 @@
         "D": "GUI",
         "correct": "A"
     },
-    "548": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 23,
@@ -6587,7 +6599,7 @@
         "D": "Hàm toán học",
         "correct": "A"
     },
-    "549": {
+    {
         "subjectId": "ta",
         "examCode": 3,
         "displayNum": 24,
@@ -6599,7 +6611,7 @@
         "D": "Câu lệnh điều kiện",
         "correct": "B"
     },
-    "550": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 1,
@@ -6611,7 +6623,7 @@
         "D": "Dữ liệu đầu ra",
         "correct": "A"
     },
-    "551": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 2,
@@ -6623,7 +6635,7 @@
         "D": "255.0.0.0",
         "correct": "C"
     },
-    "552": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 3,
@@ -6635,7 +6647,7 @@
         "D": "Phần mềm diệt virus",
         "correct": "A"
     },
-    "553": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 4,
@@ -6647,7 +6659,7 @@
         "D": "Đầu nối cáp quang",
         "correct": "A"
     },
-    "554": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 5,
@@ -6659,7 +6671,7 @@
         "D": "Intellectual Technology",
         "correct": "A"
     },
-    "555": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 6,
@@ -6671,7 +6683,7 @@
         "D": "Mô hình mạng",
         "correct": "A"
     },
-    "556": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 7,
@@ -6683,7 +6695,7 @@
         "D": "Real Active Memory",
         "correct": "A"
     },
-    "557": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 8,
@@ -6695,7 +6707,7 @@
         "D": "Hệ thống phân tán",
         "correct": "A"
     },
-    "558": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 9,
@@ -6707,7 +6719,7 @@
         "D": "Mạng máy tính",
         "correct": "B"
     },
-    "559": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 10,
@@ -6719,7 +6731,7 @@
         "D": "Quản trị viên hệ thống",
         "correct": "A"
     },
-    "560": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 11,
@@ -6731,7 +6743,7 @@
         "D": "Internet",
         "correct": "A"
     },
-    "561": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 12,
@@ -6743,7 +6755,7 @@
         "D": "Update",
         "correct": "B"
     },
-    "562": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 13,
@@ -6755,7 +6767,7 @@
         "D": "Load\/Store",
         "correct": "A"
     },
-    "563": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 14,
@@ -6767,7 +6779,7 @@
         "D": "Mã máy ngầm",
         "correct": "A"
     },
-    "564": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 15,
@@ -6779,7 +6791,7 @@
         "D": "Malware",
         "correct": "C"
     },
-    "565": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 16,
@@ -6791,7 +6803,7 @@
         "D": "Dung lượng ổ cứng",
         "correct": "A"
     },
-    "566": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 17,
@@ -6803,7 +6815,7 @@
         "D": "Delete",
         "correct": "B"
     },
-    "567": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 18,
@@ -6815,7 +6827,7 @@
         "D": "Shutdown",
         "correct": "B"
     },
-    "568": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 19,
@@ -6827,7 +6839,7 @@
         "D": "Trình gỡ lỗi",
         "correct": "A"
     },
-    "569": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 20,
@@ -6839,7 +6851,7 @@
         "D": "Save",
         "correct": "B"
     },
-    "570": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 21,
@@ -6851,7 +6863,7 @@
         "D": "Quản trị cơ sở dữ liệu",
         "correct": "A"
     },
-    "571": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 22,
@@ -6863,7 +6875,7 @@
         "D": "GUI",
         "correct": "A"
     },
-    "572": {
+    {
         "subjectId": "ta",
         "examCode": 4,
         "displayNum": 23,
@@ -6875,7 +6887,7 @@
         "D": "Hàm toán học",
         "correct": "A"
     },
-    "573": {
+    {
         "subjectId": "ta",
         "question": "Từ 'Variable' trong lập trình máy tính mang ý nghĩa gì?",
         "A": "Hằng số định sẵn",
@@ -6884,15 +6896,5 @@
         "D": "Câu lệnh điều kiện",
         "correct": "B",
         "status": "approved"
-    },
-    "Toan": [
-        {
-            "question": "1+1=?",
-            "A": "2",
-            "B": "3",
-            "C": "4",
-            "D": "5",
-            "correct": "A"
-        }
-    ]
-}
+    }
+]
