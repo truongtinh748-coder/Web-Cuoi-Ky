@@ -1,6 +1,14 @@
 <?php
+require_once 'actions/db_connect.php';
+$approved_count = 0;
+$sql = "SELECT COUNT(*) AS total FROM questions";
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $approved_count = $row['total'] ?? 0;
+}
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-// === BƯỚC 1: TĂNG THỜI GIAN SESSION ===
 ini_set('session.gc_maxlifetime', 3600);
 ini_set('session.cookie_lifetime', 3600);
 
@@ -46,9 +54,32 @@ if (!isset($_SESSION['system_users']) || !is_array($_SESSION['system_users'])) {
     $_SESSION['system_users'] = [];
 }
 
-$questions = file_exists($jsonFile) ? json_decode(file_get_contents($jsonFile), true) : [];
-if (!is_array($questions)) $questions = [];
+require_once __DIR__ . '/actions/db_connect.php';
 
+$questions = [];
+$approved_count = 0;
+
+$sql = "SELECT subject_id, exam_code, question_text, option_a, option_b, option_c, option_d, correct_answer
+        FROM questions
+        ORDER BY subject_id, exam_code, id";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $questions[] = [
+            'subjectId' => $row['subject_id'],
+            'examCode' => $row['exam_code'],
+            'question' => $row['question_text'],
+            'A' => $row['option_a'],
+            'B' => $row['option_b'],
+            'C' => $row['option_c'],
+            'D' => $row['option_d'],
+            'correct' => $row['correct_answer']
+        ];
+    }
+    $approved_count = count($questions);
+}
 $results = file_exists($resultsFile) ? json_decode(file_get_contents($resultsFile), true) : [];
 if (!is_array($results)) $results = [];
 
@@ -517,6 +548,69 @@ $countActiveSessions = count($activeSessions);
             .chat-panel{width:min(92vw,360px)}
             .q-table{display:block;overflow:auto}
         }
+        .questions-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.questions-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.questions-card-head h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.questions-card-scroll {
+    max-height: 560px;
+    overflow: auto;
+    padding: 0;
+}
+
+.questions-card-scroll .q-table {
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+    min-width: 100%;
+}
+
+.questions-card-scroll .q-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.questions-card-scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.questions-card-scroll::-webkit-scrollbar-track {
+    background: #e2e8f0;
+}
+
+.questions-card-scroll::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 999px;
+}
+
+.questions-card-scroll::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
     </style>
 </head>
 <body>
@@ -570,8 +664,10 @@ $countActiveSessions = count($activeSessions);
                 <td><span class="role-badge role-teacher" style="text-transform:uppercase;"><?php echo htmlspecialchars($sessionData['subject']); ?></span></td>
                 <td style="color:#64748b;font-size:13px;font-weight:600;"><?php echo htmlspecialchars($sessionData['start_time']); ?></td>
                 <td>
-                    <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?kick_user=<?php echo urlencode($username); ?>', 'Hủy phiên làm bài?', 'Trục xuất học sinh này ra khỏi phòng thi!')">Hủy phiên</a>
-                </td>
+    <button type="button" class="btn-del" onclick="kickUser('<?php echo htmlspecialchars($username); ?>')">
+        Hủy phiên
+    </button>
+</td>
             </tr>
             <?php endforeach; else: ?>
             <tr><td colspan="5" style="text-align:center;color:#64748b;padding:20px;font-style:italic;">Hiện tại không có học sinh nào đang trong phòng thi.</td></tr>
@@ -705,39 +801,50 @@ $countActiveSessions = count($activeSessions);
         </tbody>
     </table>
 
-    <h3 class="section-title">📦 KHO CÂU HỎI CHÍNH THỨC</h3>
-    <table class="q-table">
-        <thead>
-            <tr>
-                <th width="10%">Môn</th>
-                <th width="50%">Nội Dung Câu Hỏi</th>
-                <th width="10%">Đáp Án</th>
-                <th width="15%">Thao Tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $approved_count = 0;
-            foreach ($questions as $index => $q):
-                if (!isset($q['status']) || $q['status'] === 'approved'):
-                    $approved_count++;
-            ?>
-            <tr>
-                <td><strong style="color:#4f46e5;text-transform:uppercase;"><?php echo htmlspecialchars($q['subjectId'] ?? ''); ?></strong></td>
-                <td><?php echo htmlspecialchars($q['question'] ?? ''); ?></td>
-                <td style="font-weight:bold;color:#10b981"><?php echo htmlspecialchars($q['correct'] ?? ''); ?></td>
-                <td>
-                    <button class="btn-edit" onclick="openEditModal(<?php echo $index; ?>, <?php echo htmlspecialchars(json_encode($q)); ?>)">Sửa</button>
-                    <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_q_id=<?php echo $index; ?>', 'Xóa câu hỏi này?', 'Câu hỏi sẽ bị gỡ vĩnh viễn!')">Xóa</a>
-                </td>
-            </tr>
-            <?php endif; endforeach; if ($approved_count === 0): ?>
-            <tr><td colspan="4" style="text-align:center;color:#64748b;padding:20px;">Kho dữ liệu câu hỏi trống.</td></tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+<div class="questions-card">
+    <div class="questions-card-head">
+        <h3>📦 KHO CÂU HỎI CHÍNH THỨC</h3>
+        <span style="color:#64748b;font-size:13px;font-weight:700;">
+            <?php echo $approved_count; ?> Số Câu</span>
+    </div>
 
-    <h3 class="section-title">📊 QUẢN LÝ DANH SÁCH ĐIỂM THI CỦA SINH VIÊN</h3>
+    <div class="questions-card-scroll">
+        <table class="q-table">
+            <thead>
+                <tr>
+                    <th width="10%">Môn</th>
+                    <th width="50%">Nội Dung Câu Hỏi</th>
+                    <th width="10%">Đáp Án</th>
+                    <th width="15%">Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $approved_count = 0;
+                foreach ($questions as $index => $q):
+                    if (!isset($q['status']) || $q['status'] === 'approved'):
+                        $approved_count++;
+                ?>
+                <tr>
+                    <td><strong style="color:#4f46e5;text-transform:uppercase;"><?php echo htmlspecialchars($q['subjectId'] ?? ''); ?></strong></td>
+                    <td><?php echo htmlspecialchars($q['question'] ?? ''); ?></td>
+                    <td style="font-weight:bold;color:#10b981"><?php echo htmlspecialchars($q['correct'] ?? ''); ?></td>
+                    <td>
+                        <button class="btn-edit" onclick="openEditModal(<?php echo $index; ?>, <?php echo htmlspecialchars(json_encode($q)); ?>)">Sửa</button>
+                        <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_q_id=<?php echo $index; ?>', 'Xóa câu hỏi này?', 'Câu hỏi sẽ bị gỡ vĩnh viễn!')">Xóa</a>
+                    </td>
+                </tr>
+                <?php endif; endforeach; if ($approved_count === 0): ?>
+                <tr>
+                    <td colspan="4" style="text-align:center;color:#64748b;padding:20px;">Kho dữ liệu câu hỏi trống.</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <h3 class="section-title">📊DANH SÁCH LỊCH SỬ THI CỦA SINH VIÊN</h3>
     <table class="q-table">
         <thead>
             <tr>
@@ -939,6 +1046,27 @@ Swal.fire({ icon: 'error', title: 'Tạo thất bại!', text: 'Tên tài khoả
 <?php if(isset($_GET['success_add'])): ?>
 Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Tài khoản thành viên mới đã được lưu trữ vĩnh viễn.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000, timerProgressBar: true });
 <?php endif; ?>
+function kickUser(username) {
+    Swal.fire({
+        title: 'Trục xuất học sinh?',
+        text: "Học sinh " + username + " sẽ bị đẩy ra khỏi phòng thi ngay lập tức!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444',
+        confirmButtonText: 'Đồng ý'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Gọi đến một URL xử lý việc xóa session trong file active_sessions.json
+            fetch('admin_dashboard.php?kick_user=' + encodeURIComponent(username))
+            .then(response => {
+                Swal.fire('Thành công', 'Đã hủy phiên làm bài của học sinh.', 'success');
+                // Tùy chọn: Xóa dòng đó trên giao diện Admin luôn
+                const row = document.querySelector(`tr[data-user="${username}"]`);
+                if(row) row.remove();
+            });
+        }
+    });
+}
 </script>
 </body>
 </html>
