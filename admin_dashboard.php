@@ -1,13 +1,73 @@
 <?php
 require_once 'actions/db_connect.php';
-$approved_count = 0;
-$sql = "SELECT COUNT(*) AS total FROM questions";
-$result = mysqli_query($conn, $sql);
-
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    $approved_count = $row['total'] ?? 0;
+if (isset($_GET['toggle_code']) && isset($_GET['set_status'])) {
+    $toggleCode = mysqli_real_escape_string($conn, $_GET['toggle_code']);
+    $setStatus = mysqli_real_escape_string($conn, $_GET['set_status']);
+    
+    // 1. Kiểm tra xem môn này đã từng có dòng nào trong bảng exam_status chưa
+    $check_query = "SELECT * FROM exam_status WHERE subject_code = '$toggleCode'";
+    $check_res = mysqli_query($conn, $check_query);
+    
+    if (mysqli_num_rows($check_res) > 0) {
+        // Nếu đã tồn tại -> Tiến hành cập nhật trạng thái (UPDATE)
+        $query_toggle = "UPDATE exam_status SET status = '$setStatus' WHERE subject_code = '$toggleCode'";
+    } else {
+        // Nếu chưa tồn tại (như môn TA, CSDL) -> Tiến hành thêm mới dòng cho môn đó (INSERT)
+        $query_toggle = "INSERT INTO exam_status (subject_code, status) VALUES ('$toggleCode', '$setStatus')";
+    }
+    
+    // 2. Chạy câu lệnh quyết định và kiểm tra lỗi nghiêm ngặt
+    if (mysqli_query($conn, $query_toggle)) {
+        // Nếu thành công hoàn toàn -> Mới cho phép tải lại trang để cập nhật giao diện
+        header("Location: admin_dashboard.php");
+        exit();
+    } else {
+        // Nếu database từ chối lệnh, dừng trang lại và in ra lỗi chính xác để sửa
+        die("LỖI HỆ THỐNG DATABASE: " . mysqli_error($conn));
+    }
 }
+
+// 1. TẢI DỮ LIỆU MÔN HỌC
+$query_subjects = "SELECT * FROM subjects";
+$res_subjects = mysqli_query($conn, $query_subjects);
+
+if (!$res_subjects) {
+    die("Lỗi SQL Bảng Subjects: " . mysqli_error($conn));
+}
+$list_mon_hoc = mysqli_fetch_all($res_subjects, MYSQLI_ASSOC);
+
+// 2. TẢI DỮ LIỆU CÂU HỎI (Kèm TÊN MÔN bằng JOIN)
+// Lưu ý: Thay 'name' bằng tên cột thật chứa tên môn trong bảng 'subjects' của bạn
+$query_questions = "SELECT q.*, s.subject_id AS subject_id
+                    FROM questions q 
+                    LEFT JOIN subjects s ON q.subject_id = s.id";
+$res_questions = mysqli_query($conn, $query_questions);
+$questions = mysqli_fetch_all($res_questions, MYSQLI_ASSOC);
+
+// 3. TẢI DỮ LIỆU LỊCH SỬ THI
+$query_results = "SELECT * FROM exam_results";
+$res_results = mysqli_query($conn, $query_results);
+$results = mysqli_fetch_all($res_results, MYSQLI_ASSOC);
+
+$examStatus = []; 
+$query_status = "SELECT subject_code, status FROM exam_status"; // Đảm bảo tên bảng là exam_status
+$res_status = mysqli_query($conn, $query_status);
+
+if ($res_status) {
+    while ($row = mysqli_fetch_assoc($res_status)) {
+        // Tạo cuốn sổ tay: key là ID môn, value là trạng thái (open/closed)
+        $examStatus[$row['subject_code']] = $row['status'];
+    }
+}
+
+// 4. TÍNH SỐ LƯỢNG CÂU HỎI ĐÃ DUYỆT (Không cần query thêm, dùng luôn mảng $questions)
+$approved_count = 0;
+foreach ($questions as $q) {
+    if (!isset($q['status']) || $q['status'] === 'approved') {
+        $approved_count++;
+    }
+}
+
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 ini_set('session.gc_maxlifetime', 3600);
 ini_set('session.cookie_lifetime', 3600);
@@ -59,11 +119,13 @@ require_once __DIR__ . '/actions/db_connect.php';
 $questions = [];
 $approved_count = 0;
 
-$sql = "SELECT subject_id, exam_code, question_text, option_a, option_b, option_c, option_d, correct_answer
-        FROM questions
-        ORDER BY subject_id, exam_code, id";
+$sql = "SELECT q.*, s.subject_id AS subject_id
+        FROM questions q 
+        LEFT JOIN subjects s ON q.subject_id = s.id 
+        ORDER BY q.subject_id, q.exam_code, q.id";
 
 $result = mysqli_query($conn, $sql);
+$questions = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -675,51 +737,56 @@ $countActiveSessions = count($activeSessions);
         </tbody>
     </table>
 
-    <h3 class="section-title" style="color:#f59e0b;">💡 DANH SÁCH MÔN HỌC</h3>
-    <table class="q-table">
-        <thead>
-            <tr>
-                <th width="20%">Mã Bộ Đề</th>
-                <th width="25%">Số Câu Hỏi</th>
-                <th width="25%">Trạng Thái</th>
-                <th width="30%">Thao Tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (count($subjectsList) > 0): foreach ($subjectsList as $sub):
-                $countQ = 0;
-                foreach($questions as $q) {
-                    $qSub = $q['subjectId'] ?? '';
-                    if(strtoupper(trim($qSub)) === $sub && (!isset($q['status']) || $q['status'] === 'approved')) {
-                        $countQ++;
-                    }
+<h3 class="section-title" style="color:#f59e0b;">💡 DANH SÁCH MÔN HỌC</h3>
+<table class="q-table">
+    <thead>
+        <tr>
+            <th width="20%">Môn</th>
+            <th width="25%">Số Câu Hỏi</th>
+            <th width="25%">Trạng Thái</th>
+            <th width="30%">Thao Tác</th>
+        </tr>
+    </thead>
+<tbody>
+    <?php if (!empty($list_mon_hoc)): 
+        foreach ($list_mon_hoc as $sub): 
+            $sCode = $sub['subject_id']; 
+            
+            // Đếm câu hỏi (Chữ với Chữ)
+            $countQ = 0;
+            foreach ($questions as $q) {
+                if (isset($q['subject_id']) && $q['subject_id'] === $sCode) {
+                    $countQ++;
                 }
-                $st = isset($examStatus[$sub]) ? $examStatus[$sub] : 'closed';
-            ?>
-            <tr>
-                <td><strong style="color:#4f46e5;font-size:16px;"><?php echo $sub; ?></strong></td>
-                <td><span style="font-weight:600;"><?php echo $countQ; ?> câu hỏi</span></td>
-                <td>
-                    <?php if($st === 'open'): ?>
-                        <span class="role-badge status-open">🟢 Đang mở thi</span>
-                    <?php else: ?>
-                        <span class="role-badge status-closed">🔴 Đang khóa</span>
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <?php if($st === 'open'): ?>
-                        <a href="admin_dashboard.php?toggle_subject=<?php echo urlencode($sub); ?>" class="btn-toggle-off btn-toggle-exam" data-subject="<?php echo htmlspecialchars($sub); ?>">🔒 Khóa đề</a>
-                    <?php else: ?>
-                        <a href="admin_dashboard.php?toggle_subject=<?php echo urlencode($sub); ?>" class="btn-toggle-on btn-toggle-exam" data-subject="<?php echo htmlspecialchars($sub); ?>">🚀 Mở thi</a>
-                    <?php endif; ?>
-                </td>
-            </tr>
-            <?php endforeach; else: ?>
-            <tr><td colspan="4" style="text-align:center;color:#64748b;padding:20px;">Không có môn học nào đủ điều kiện.</td></tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            }
 
+            // Lấy trạng thái từ bảng exam_status
+            $st = isset($examStatus[$sCode]) ? $examStatus[$sCode] : 'closed';
+    ?>
+    <tr>
+        <td><strong><?php echo htmlspecialchars($sCode); ?></strong></td>
+        <td><?php echo $countQ; ?> câu hỏi</td>
+        <td>
+            <?php if($st === 'open'): ?>
+                <span class="role-badge status-open">🟢 Đang mở</span>
+            <?php else: ?>
+                <span class="role-badge status-closed">🔴 Đang khóa</span>
+            <?php endif; ?>
+        </td>
+        <td>
+            <?php if($st === 'open'): ?>
+                <a href="admin_dashboard.php?toggle_code=<?php echo urlencode($sCode); ?>&set_status=closed" class="btn-toggle-off">🔒 Khóa đề</a>
+            <?php else: ?>
+                <a href="admin_dashboard.php?toggle_code=<?php echo urlencode($sCode); ?>&set_status=open" class="btn-toggle-on">🚀 Mở thi</a>
+            <?php endif; ?>
+        </td>
+    </tr>
+    <?php endforeach; 
+    else: ?>
+        <tr><td colspan="4" style="text-align:center;">Không có môn học nào.</td></tr>
+    <?php endif; ?>
+</tbody>
+</table>
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:5px;flex-wrap:wrap;">
         <h3 class="section-title" style="margin:0;">👥 QUẢN LÝ TÀI KHOẢN TRÊN HỆ THỐNG</h3>
         <button class="btn-add-action" onclick="openAddUserModal()">➕ Tạo Tài Khoản Mới</button>
@@ -826,9 +893,9 @@ $countActiveSessions = count($activeSessions);
                         $approved_count++;
                 ?>
                 <tr>
-                    <td><strong style="color:#4f46e5;text-transform:uppercase;"><?php echo htmlspecialchars($q['subjectId'] ?? ''); ?></strong></td>
-                    <td><?php echo htmlspecialchars($q['question'] ?? ''); ?></td>
-                    <td style="font-weight:bold;color:#10b981"><?php echo htmlspecialchars($q['correct'] ?? ''); ?></td>
+                    <td><strong style="color:#4f46e5;text-transform:uppercase;"><?php echo htmlspecialchars($q['subject_id'] ?? 'N/A'); ?></strong></td>
+                    <td><?php echo htmlspecialchars($q['question_text'] ?? ''); ?></td>
+                    <td style="font-weight:bold;color:#10b981"><?php echo htmlspecialchars($q['correct_answer'] ?? ''); ?></td>
                     <td>
                         <button class="btn-edit" onclick="openEditModal(<?php echo $index; ?>, <?php echo htmlspecialchars(json_encode($q)); ?>)">Sửa</button>
                         <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_q_id=<?php echo $index; ?>', 'Xóa câu hỏi này?', 'Câu hỏi sẽ bị gỡ vĩnh viễn!')">Xóa</a>
