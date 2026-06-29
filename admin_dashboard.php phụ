@@ -1,0 +1,1296 @@
+<?php
+require_once __DIR__ . '/actions/db_connect.php';
+
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+ini_set('session.gc_maxlifetime', 3600);
+ini_set('session.cookie_lifetime', 3600);
+session_set_cookie_params([
+    'lifetime' => 3600,
+    'path' => '/',
+    'secure' => false,
+    'httponly' => true,
+    'samesite' => 'Lax'
+]);
+
+if (isset($_POST['send_chat'])) {
+    $message = trim($_POST['chat_message']);
+    $userId = isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : 0;
+
+    if ($userId <= 0) {
+        die('Lỗi: user_id không hợp lệ trong session.');
+    }
+
+    if ($message !== '') {
+        $stmt = mysqli_prepare($conn, "INSERT INTO chat_messages (user_id, message, created_at) VALUES (?, ?, NOW())");
+        mysqli_stmt_bind_param($stmt, "is", $userId, $message);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
+    header("Location: admin_dashboard.php");
+    exit();
+}
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['username']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: login.php");
+    exit();
+}
+
+if (!isset($_SESSION['fullname'])) {
+    $_SESSION['fullname'] = $_SESSION['username'];
+}
+
+$_SESSION['last_activity'] = $_SESSION['last_activity'] ?? time();
+if (time() - $_SESSION['last_activity'] > 3600) {
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+$_SESSION['last_activity'] = time();
+
+function e($value) {
+    return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+}
+
+function fetchAllAssoc($conn, $sql) {
+    $res = mysqli_query($conn, $sql);
+    if (!$res) {
+        die("SQL Error: " . mysqli_error($conn));
+    }
+    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+}
+
+function fetchOneAssoc($conn, $sql) {
+    $res = mysqli_query($conn, $sql);
+    if (!$res) {
+        die("SQL Error: " . mysqli_error($conn));
+    }
+    return mysqli_fetch_assoc($res);
+}
+
+if (isset($_GET['toggle_code'], $_GET['set_status'])) {
+    $toggleCode = mysqli_real_escape_string($conn, $_GET['toggle_code']);
+    $setStatus = mysqli_real_escape_string($conn, $_GET['set_status']);
+
+    $query_toggle = "UPDATE subjects
+                     SET status = '$setStatus'
+                     WHERE subject_id = '$toggleCode'";
+
+    if (!mysqli_query($conn, $query_toggle)) {
+        die("LỖI HỆ THỐNG DATABASE: " . mysqli_error($conn));
+    }
+
+    if (isset($_GET['ajax']) && $_GET['ajax'] == 1) {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode([
+            'success' => true,
+            'new_status' => $setStatus,
+            'subject' => $toggleCode
+        ], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
+
+    header("Location: admin_dashboard.php?success_toggle=" . urlencode($toggleCode));
+    exit();
+}
+
+if (isset($_GET['kick_user'])) {
+    $userKick = (int)$_GET['kick_user'];
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['success' => true]);
+    exit();
+}
+
+if (isset($_GET['delete_user'])) {
+    $deleteUserId = (int)$_GET['delete_user'];
+
+    $stmt = mysqli_prepare($conn, "DELETE FROM users WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $deleteUserId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("Location: admin_dashboard.php?success_delete=1");
+    exit();
+}
+
+if (isset($_GET['approve_q_id'])) {
+    $qid = (int)$_GET['approve_q_id'];
+
+    $stmt = mysqli_prepare($conn, "UPDATE questions SET status = 'approved' WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $qid);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("Location: admin_dashboard.php?success_approve=1");
+    exit();
+}
+
+if (isset($_GET['delete_q_id'])) {
+    $qid = (int)$_GET['delete_q_id'];
+
+    $stmt = mysqli_prepare($conn, "DELETE FROM questions WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $qid);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("Location: admin_dashboard.php?success_delete_q=1");
+    exit();
+}
+
+if (isset($_GET['delete_res_id'])) {
+    $rid = (int)$_GET['delete_res_id'];
+
+    $stmt = mysqli_prepare($conn, "DELETE FROM exam_results WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $rid);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("Location: admin_dashboard.php?success_delete_res=1");
+    exit();
+}
+
+if (isset($_POST['edit_question'])) {
+    $qid = (int)$_POST['question_index'];
+    $subjectId = trim($_POST['subjectId']);
+    $questionText = trim($_POST['question']);
+    $a = trim($_POST['A']);
+    $b = trim($_POST['B']);
+    $c = trim($_POST['C']);
+    $d = trim($_POST['D']);
+    $correct = strtoupper(trim($_POST['correct']));
+    $difficulty = trim($_POST['difficulty'] ?? 'easy');
+    $status = trim($_POST['status'] ?? 'approved');
+
+    $stmt = mysqli_prepare($conn, "UPDATE questions
+        SET subject_id = ?, question_text = ?, option_a = ?, option_b = ?, option_c = ?, option_d = ?, correct_answer = ?, difficulty = ?, status = ?
+        WHERE id = ?");
+
+    mysqli_stmt_bind_param($stmt, "sssssssssi", $subjectId, $questionText, $a, $b, $c, $d, $correct, $difficulty, $status, $qid);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("Location: admin_dashboard.php?success_edit=1");
+    exit();
+}
+
+if (isset($_POST['add_user'])) {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $fullname = trim($_POST['fullname']);
+    $email = trim($_POST['email']);
+    $role = trim($_POST['role']);
+
+    if ($username !== '' && $password !== '') {
+        $check = mysqli_prepare($conn, "SELECT id FROM users WHERE username = ?");
+        mysqli_stmt_bind_param($check, "s", $username);
+        mysqli_stmt_execute($check);
+        mysqli_stmt_store_result($check);
+
+        if (mysqli_stmt_num_rows($check) > 0) {
+            mysqli_stmt_close($check);
+            header("Location: admin_dashboard.php?error_add=exists");
+            exit();
+        }
+        mysqli_stmt_close($check);
+
+        $hashed = password_hash($password, PASSWORD_DEFAULT);
+
+        $stmt = mysqli_prepare($conn, "INSERT INTO users (username, password, fullname, email, role) VALUES (?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "sssss", $username, $hashed, $fullname, $email, $role);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        header("Location: admin_dashboard.php?success_add=1");
+        exit();
+    }
+}
+
+$subjects = fetchAllAssoc($conn, "SELECT * FROM subjects ORDER BY subject_name");
+$questions = fetchAllAssoc($conn, "SELECT q.*, s.subject_name
+                                   FROM questions q
+                                   LEFT JOIN subjects s ON q.subject_id = s.subject_id
+                                   ORDER BY q.subject_id, q.exam_code, q.id");
+$results = fetchAllAssoc($conn, "SELECT * FROM exam_results ORDER BY submitted_at DESC");
+$users = fetchAllAssoc($conn, "SELECT * FROM users ORDER BY role, username");
+
+$approved_questions = array_values(array_filter($questions, function ($q) {
+    return !isset($q['status']) || $q['status'] === 'approved';
+}));
+
+$pending_questions = array_values(array_filter($questions, function ($q) {
+    return isset($q['status']) && $q['status'] === 'pending';
+}));
+
+$countTotalUsers = count($users);
+$countTotalQuestions = count($questions);
+$countPendingQuestions = count($pending_questions);
+$countActiveSessions = 0;
+
+$sessionRows = [];
+$activeSessions = [];
+
+$chatMessages = fetchAllAssoc($conn, "
+    SELECT 
+        cm.id,
+        cm.user_id,
+        u.username,
+        u.fullname,
+        u.role,
+        cm.message,
+        cm.created_at
+    FROM chat_messages cm
+    LEFT JOIN users u ON cm.user_id = u.id
+    ORDER BY cm.created_at DESC, cm.id DESC
+    LIMIT 100
+");
+
+foreach ($chatMessages as $row) {
+    $key = $row['user_id'];
+    if (!isset($activeSessions[$key])) {
+        $activeSessions[$key] = [
+            'fullname' => $row['fullname'] ?? $row['username'] ?? '',
+            'subject' => 'CHAT',
+            'start_time' => $row['created_at'] ?? ''
+        ];
+    }
+}
+$countActiveSessions = count($activeSessions);
+
+$examStatus = [];
+$statusRows = fetchAllAssoc($conn, "SELECT subject_id, status FROM subjects");
+foreach ($statusRows as $row) {
+    $examStatus[$row['subject_id']] = $row['status'];
+}
+
+?>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng Quản Trị Hệ Thống - Admin</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:16px;
+    backdrop-filter:blur(6px);
+    overflow-y:auto;
+}
+
+        .modal-content{
+    background:#fff;
+    padding:26px;
+    border-radius:20px;
+    width:560px;
+    max-width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    box-shadow:0 30px 70px rgba(15,23,42,.24);
+    border:1px solid rgba(255,255,255,.8);
+    box-sizing:border-box;
+}
+        :root{
+            --bg:#f4f7fb;
+            --card:#ffffff;
+            --text:#0f172a;
+            --muted:#64748b;
+            --border:#e5eaf2;
+            --primary:#2563eb;
+            --primary2:#0ea5e9;
+            --danger:#ef4444;
+            --success:#10b981;
+            --shadow:0 14px 40px rgba(15,23,42,.08);
+        }
+        *{box-sizing:border-box}
+        body{
+            font-family:'Segoe UI',sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(37,99,235,.10), transparent 32%),
+                radial-gradient(circle at top right, rgba(14,165,233,.08), transparent 28%),
+                linear-gradient(135deg,#eef4ff 0%,#f8fafc 60%,#eef2ff 100%);
+            margin:0;
+            color:var(--text);
+        }
+        .navbar{
+            position:sticky;
+            top:0;
+            z-index:50;
+            background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
+            color:#fff;
+            padding:14px 26px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:14px;
+            box-shadow:0 8px 24px rgba(15,23,42,.16);
+        }
+        .navbar h2{
+            margin:0;
+            font-size:16px;
+            letter-spacing:.3px;
+            font-weight:800;
+        }
+        .navbar a{
+            color:#fff;
+            text-decoration:none;
+            font-weight:700;
+            padding:10px 16px;
+            background:rgba(239,68,68,.12);
+            border:1px solid rgba(239,68,68,.18);
+            border-radius:12px;
+        }
+        .container{
+            max-width:1260px;
+            margin:28px auto;
+            padding:0 18px 80px;
+        }
+        .header-card{
+            background:linear-gradient(135deg,#ffffff 0%,#f8fbff 100%);
+            padding:24px 24px;
+            border:1px solid var(--border);
+            border-radius:22px;
+            margin-bottom:22px;
+            box-shadow:var(--shadow);
+        }
+        .header-card h1{margin:0 0 8px;font-size:26px}
+        .header-card p{margin:0;color:var(--muted);line-height:1.6}
+        .stats-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:16px;
+            margin-bottom:28px;
+        }
+        .stat-card{
+            background:var(--card);
+            padding:18px 20px;
+            border-radius:18px;
+            box-shadow:var(--shadow);
+            border:1px solid var(--border);
+            border-top:4px solid #4f46e5;
+        }
+        .stat-card.u-cnt{border-top-color:#3b82f6}
+        .stat-card.q-cnt{border-top-color:#10b981}
+        .stat-card.p-cnt{border-top-color:#f59e0b}
+        .stat-card.o-cnt{border-top-color:#ef4444}
+        .stat-title{
+            font-size:12px;
+            color:var(--muted);
+            font-weight:700;
+            text-transform:uppercase;
+            letter-spacing:.7px;
+            margin-bottom:8px;
+        }
+        .stat-value{font-size:30px;font-weight:900;color:var(--text)}
+        .section-title{
+            margin:28px 0 14px;
+            font-size:18px;
+            font-weight:900;
+            color:#1e293b;
+        }
+        .q-table{
+            width:100%;
+            background:#fff;
+            border-collapse:separate;
+            border-spacing:0;
+            border-radius:18px;
+            overflow:hidden;
+            margin-bottom:28px;
+            border:1px solid var(--border);
+            box-shadow:var(--shadow);
+        }
+        .q-table th,.q-table td{
+            padding:14px 15px;
+            border-bottom:1px solid var(--border);
+            text-align:left;
+            vertical-align:top;
+        }
+        .q-table th{
+            background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
+            color:#fff;
+            font-size:13px;
+            letter-spacing:.3px;
+        }
+        .q-table tr:hover td{background:#f8fbff}
+        .btn-edit,.btn-approve,.btn-del,.btn-toggle-on,.btn-toggle-off,.btn-add-action{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:6px;
+            text-decoration:none;
+            border:none;
+            cursor:pointer;
+            font-weight:800;
+            border-radius:12px;
+            transition:.22s ease;
+            white-space:nowrap;
+        }
+        .btn-edit{background:#3b82f6;color:#fff;padding:8px 12px}
+        .btn-approve{background:#10b981;color:#fff;padding:8px 12px}
+        .btn-del{background:#ef4444;color:#fff;padding:8px 12px}
+        .btn-toggle-on{background:#10b981;color:#fff;padding:8px 12px}
+        .btn-toggle-off{background:#f59e0b;color:#fff;padding:8px 12px}
+        .btn-add-action{
+            background:linear-gradient(135deg,#4f46e5 0%,#2563eb 100%);
+            color:#fff;
+            padding:10px 16px;
+            box-shadow:0 10px 20px rgba(79,70,229,.18);
+        }
+        .btn-edit:hover,.btn-approve:hover,.btn-del:hover,.btn-toggle-on:hover,.btn-toggle-off:hover,.btn-add-action:hover{
+            transform:translateY(-2px);
+            filter:brightness(1.03);
+        }
+        .role-badge{
+            padding:5px 10px;
+            border-radius:999px;
+            font-size:12px;
+            font-weight:800;
+            display:inline-block;
+        }
+        .role-student{background:#e0f2fe;color:#0369a1}
+        .role-teacher{background:#fef3c7;color:#b45309}
+        .role-admin{background:#fce7f3;color:#be185d}
+        .status-open{background:#d1fae5;color:#065f46}
+        .status-closed{background:#fee2e2;color:#991b1b}
+        .modal{
+            display:none;
+            position:fixed;
+            inset:0;
+            background:rgba(15,23,42,.55);
+            justify-content:center;
+            align-items:center;
+            z-index:999;
+            padding:16px;
+            backdrop-filter:blur(6px);
+        }
+        .modal-content{
+            background:#fff;
+            padding:26px;
+            border-radius:20px;
+            width:560px;
+            max-width:100%;
+            box-shadow:0 30px 70px rgba(15,23,42,.24);
+            border:1px solid rgba(255,255,255,.8);
+        }
+        .form-group{margin-bottom:12px}
+        .form-group label{display:block;font-weight:700;margin-bottom:6px;color:#334155;font-size:14px}
+        .form-group input,.form-group textarea,.form-group select{
+            width:100%;
+            padding:11px 12px;
+            border:1px solid #cbd5e1;
+            border-radius:12px;
+            outline:none;
+            font-size:14px;
+            background:#fff;
+        }
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+            border-color:#60a5fa;
+            box-shadow:0 0 0 4px rgba(96,165,250,.15);
+        }
+        .chat-fab{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:62px;
+    height:62px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 100%);
+    color:#fff;
+    font-size:24px;
+    box-shadow:0 18px 36px rgba(37,99,235,.30);
+    cursor:pointer;
+    z-index:1000;
+    transition:.25s ease;
+}
+.chat-fab:hover{transform:translateY(-3px) scale(1.05)}
+
+.chat-panel{
+    position:fixed;
+    right:22px;
+    bottom:96px;
+    width:380px;
+    max-width:calc(100vw - 32px);
+    height:520px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(226,232,240,.9);
+    border-radius:24px;
+    box-shadow:0 26px 70px rgba(15,23,42,.22);
+    overflow:hidden;
+    z-index:999;
+    display:none;
+    flex-direction:column;
+    backdrop-filter:blur(12px);
+}
+
+.chat-panel.open{display:flex}
+
+.chat-panel-head{
+    background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
+    color:#fff;
+    padding:16px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.chat-panel-head h4{
+    margin:0;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:.2px;
+}
+
+.chat-panel-head small{
+    display:block;
+    color:rgba(255,255,255,.72);
+    font-size:11px;
+    margin-top:2px;
+}
+
+.chat-close{
+    border:none;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    transition:.2s ease;
+}
+.chat-close:hover{background:rgba(255,255,255,.22)}
+
+.chat-panel-body{
+    flex:1;
+    padding:16px;
+    background:
+        radial-gradient(circle at top right, rgba(37,99,235,.05), transparent 30%),
+        #f8fafc;
+    overflow:auto;
+}
+
+.chat-message-item{
+    margin-bottom:12px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.chat-message-bubble{
+    max-width:88%;
+    width:fit-content;
+    padding:11px 13px;
+    border-radius:16px;
+    border:1px solid #e2e8f0;
+    background:#fff;
+    color:#334155;
+    box-shadow:0 8px 18px rgba(15,23,42,.04);
+    line-height:1.5;
+    word-break:break-word;
+    white-space:pre-wrap;
+}
+
+.chat-message-meta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    color:#64748b;
+    padding:0 2px;
+}
+
+.chat-message-name{
+    font-weight:800;
+    color:#1e293b;
+}
+
+.chat-message-time{
+    font-size:11px;
+    color:#94a3b8;
+}
+
+.chat-message-item.admin{
+    align-items:flex-end;
+}
+
+.chat-message-item.admin .chat-message-bubble{
+    background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 100%);
+    color:#fff;
+    border-color:transparent;
+}
+
+.chat-message-item.admin .chat-message-meta{
+    justify-content:flex-end;
+}
+
+.chat-panel-footer{
+    padding:12px;
+    border-top:1px solid #e2e8f0;
+    background:#fff;
+    display:flex;
+    gap:10px;
+}
+
+.chat-panel-footer input{
+    flex:1;
+    border:1px solid #cbd5e1;
+    border-radius:14px;
+    padding:12px 14px;
+    outline:none;
+    font-size:14px;
+    transition:.2s ease;
+    background:#fff;
+}
+.chat-panel-footer input:focus{
+    border-color:#60a5fa;
+    box-shadow:0 0 0 4px rgba(96,165,250,.14);
+}
+
+.chat-panel-footer button{
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 100%);
+    color:#fff;
+    font-weight:800;
+    padding:0 16px;
+    min-width:72px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+.chat-panel-footer button:hover{transform:translateY(-1px)}
+
+.chat-empty{
+    color:#64748b;
+    font-size:13px;
+    text-align:center;
+    padding:18px 8px;
+    background:#fff;
+    border:1px dashed #cbd5e1;
+    border-radius:16px;
+}
+
+.chat-panel-body::-webkit-scrollbar{width:10px}
+.chat-panel-body::-webkit-scrollbar-track{background:#e2e8f0}
+.chat-panel-body::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:999px;
+}
+.chat-panel-body::-webkit-scrollbar-thumb:hover{background:#64748b}
+
+@media (max-width: 768px){
+    .chat-panel{
+        width:min(94vw,380px);
+        height:min(70vh,540px);
+        right:14px;
+        bottom:86px;
+    }
+}
+        .questions-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 28px;
+        }
+        .questions-card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        }
+        .questions-card-head h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 900;
+            color: #1e293b;
+        }
+        .questions-card-scroll {
+            max-height: 560px;
+            overflow: auto;
+            padding: 0;
+        }
+        .questions-card-scroll .q-table {
+            margin-bottom: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border: 0;
+            min-width: 100%;
+        }
+        .questions-card-scroll .q-table th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        .questions-card-scroll::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        .questions-card-scroll::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        .questions-card-scroll::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 999px;
+        }
+        .questions-card-scroll::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>🛠️ BẢNG ĐIỀU KHIỂN QUẢN TRỊ TỐI CAO (ADMIN)</h2>
+    <a href="login.php">Đăng Xuất</a>
+</div>
+
+<div class="container">
+    <div class="header-card">
+        <h1>Xin chào Tổng Quản Trị: <?php echo e($_SESSION['fullname']); ?></h1>
+        <p>Hệ thống Quản Trị tối cao giúp giám sát Giáo Viên và Học Sinh</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card u-cnt">
+            <div class="stat-title">Tổng Tài Khoản</div>
+            <div class="stat-value"><?php echo $countTotalUsers; ?></div>
+        </div>
+        <div class="stat-card q-cnt">
+            <div class="stat-title">Kho Câu Hỏi</div>
+            <div class="stat-value"><?php echo $countTotalQuestions; ?></div>
+        </div>
+        <div class="stat-card p-cnt">
+            <div class="stat-title">Câu Hỏi Chờ Duyệt</div>
+            <div class="stat-value"><?php echo $countPendingQuestions; ?></div>
+        </div>
+        <div class="stat-card o-cnt">
+            <div class="stat-title">Tin Nhắn Chat</div>
+            <div class="stat-value"><?php echo count($chatMessages); ?></div>
+        </div>
+    </div>
+
+    <h3 class="section-title" style="color:#8b5cf6;">💬 LỊCH SỬ CHAT </h3>
+    <div class="questions-card">
+        <div class="questions-card-head">
+            <h3>Nhật ký chat gần nhất</h3>
+            <span style="color:#64748b;font-size:13px;font-weight:700;">
+                <?php echo count($chatMessages); ?> Tin nhắn
+            </span>
+        </div>
+        <div class="chat-panel-body" style="max-height:360px;">
+            <?php if (!empty($chatMessages)): ?>
+                <?php foreach ($chatMessages as $msg): ?>
+                    <div class="chat-message-item">
+                        <div class="chat-message-head">
+                            <span class="chat-message-name">
+                                <?php echo e($msg['fullname'] ?: $msg['username'] ?: 'Unknown'); ?>
+                            </span>
+                            <span class="chat-message-time"><?php echo e($msg['created_at']); ?></span>
+                        </div>
+                        <div class="chat-message-body">
+                            <?php echo nl2br(e($msg['message'])); ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="chat-note">Chưa có tin nhắn nào trong hệ thống.</div>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <h3 class="section-title" style="color:#ef4444;">⚡ THEO DÕI THÍ SINH ĐANG LÀM BÀI TRỰC TUYẾN</h3>
+    <table class="q-table" style="border-left:4px solid #ef4444;">
+        <thead>
+            <tr>
+                <th width="20%">Tài khoản</th>
+                <th width="25%">Họ và Tên</th>
+                <th width="20%">Môn Thi</th>
+                <th width="20%">Bắt Đầu</th>
+                <th width="15%">Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (count($activeSessions) > 0): foreach ($activeSessions as $username => $sessionData): ?>
+            <tr>
+                <td><strong style="color:#b91c1c;"><?php echo e($username); ?></strong></td>
+                <td><?php echo e($sessionData['fullname']); ?></td>
+                <td><span class="role-badge role-teacher" style="text-transform:uppercase;"><?php echo e($sessionData['subject']); ?></span></td>
+                <td style="color:#64748b;font-size:13px;font-weight:600;"><?php echo e($sessionData['start_time']); ?></td>
+                <td>
+                    <button type="button" class="btn-del" onclick="kickUser('<?php echo e($username); ?>')">Hủy phiên</button>
+                </td>
+            </tr>
+            <?php endforeach; else: ?>
+            <tr><td colspan="5" style="text-align:center;color:#64748b;padding:20px;font-style:italic;">Hiện tại không có học sinh nào đang trong phòng thi.</td></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+
+    <h3 class="section-title" style="color:#f59e0b;">💡 DANH SÁCH MÔN HỌC</h3>
+    <table class="q-table">
+        <thead>
+            <tr>
+                <th width="20%">Môn</th>
+                <th width="25%">Số Câu Hỏi</th>
+                <th width="25%">Trạng Thái</th>
+                <th width="30%">Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php if (!empty($subjects)): ?>
+            <?php foreach ($subjects as $sub): ?>
+                <?php
+                    $sCode = $sub['subject_id'];
+                    $sName = $sub['subject_name'];
+                    $st = $sub['status'] ?? 'closed';
+                    $countQ = 0;
+                    foreach ($questions as $q) {
+                        if ((string)($q['subject_id'] ?? '') === (string)$sCode) {
+                            $countQ++;
+                        }
+                    }
+                ?>
+                <tr>
+                    <td><strong><?php echo e($sName); ?></strong></td>
+                    <td><?php echo $countQ; ?> câu hỏi</td>
+                    <td>
+                        <?php if($st === 'open'): ?>
+                            <span class="role-badge status-open">🟢 Đang mở</span>
+                        <?php else: ?>
+                            <span class="role-badge status-closed">🔴 Đang khóa</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if($st === 'open'): ?>
+                            <a href="admin_dashboard.php?toggle_code=<?php echo urlencode($sCode); ?>&set_status=closed" class="btn-toggle-off btn-toggle-exam" data-subject="<?php echo e($sCode); ?>">🔒 Khóa đề</a>
+                        <?php else: ?>
+                            <a href="admin_dashboard.php?toggle_code=<?php echo urlencode($sCode); ?>&set_status=open" class="btn-toggle-on btn-toggle-exam" data-subject="<?php echo e($sCode); ?>">🚀 Mở thi</a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr><td colspan="4" style="text-align:center;">Không có môn học nào.</td></tr>
+        <?php endif; ?>
+        </tbody>
+    </table>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:5px;flex-wrap:wrap;">
+        <h3 class="section-title" style="margin:0;">👥 QUẢN LÝ TÀI KHOẢN TRÊN HỆ THỐNG</h3>
+        <button class="btn-add-action" onclick="openAddUserModal()">➕ Tạo Tài Khoản Mới</button>
+    </div>
+    <table class="q-table">
+        <thead>
+            <tr>
+                <th>Tài khoản</th>
+                <th>Họ và Tên</th>
+                <th>Email</th>
+                <th>Mật khẩu</th>
+                <th>Phân loại</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($users)): foreach ($users as $u): ?>
+            <tr>
+                <td><strong><?php echo e($u['username']); ?></strong></td>
+                <td><?php echo e($u['fullname'] ?? 'Chưa cập nhật'); ?></td>
+                <td><?php echo e($u['email'] ?? 'Không có'); ?></td>
+                <td><span style="font-family:monospace;background:#fee2e2;color:#991b1b;padding:4px 8px;border-radius:6px;font-weight:bold;font-size:13px;"><?php echo e($u['password']); ?></span></td>
+                <td>
+                    <?php
+                    $role = $u['role'] ?? 'student';
+                    if($role === 'admin') echo '<span class="role-badge role-admin">Quản trị viên</span>';
+                    elseif($role === 'teacher') echo '<span class="role-badge role-teacher">Giáo viên</span>';
+                    else echo '<span class="role-badge role-student">Học sinh</span>';
+                    ?>
+                </td>
+                <td>
+                    <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_user=<?php echo (int)$u['id']; ?>', 'Xóa tài khoản này?', 'Tài khoản này sẽ bị xóa vĩnh viễn khỏi hệ thống!')">Xóa</a>
+                </td>
+            </tr>
+            <?php endforeach; else: ?>
+            <tr><td colspan="6" style="text-align:center;color:#64748b;padding:20px;">Không tìm thấy danh sách tài khoản.</td></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+
+    <h3 class="section-title" style="color:#dd6b20;">💡 ĐỀ THI ĐANG CHỜ DUYỆT</h3>
+    <table class="q-table">
+        <thead>
+            <tr>
+                <th width="10%">Môn</th>
+                <th width="55%">Nội Dung Câu Hỏi</th>
+                <th width="10%">Đáp Án</th>
+                <th width="25%">Quyết Định</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (count($pending_questions) > 0): foreach ($pending_questions as $q): ?>
+            <tr style="background:#fffaf0;">
+                <td><strong style="color:#dd6b20;text-transform:uppercase;"><?php echo e($q['subject_name'] ?? 'N/A'); ?></strong></td>
+                <td><?php echo e($q['question_text'] ?? ''); ?></td>
+                <td style="font-weight:bold;color:#dd6b20;"><?php echo e($q['correct_answer'] ?? ''); ?></td>
+                <td>
+                    <a href="admin_dashboard.php?approve_q_id=<?php echo (int)$q['id']; ?>" class="btn-approve">Phê Duyệt</a>
+                    <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_q_id=<?php echo (int)$q['id']; ?>', 'Từ chối câu hỏi?', 'Câu hỏi này sẽ bị gỡ bỏ!')">Xóa</a>
+                </td>
+            </tr>
+            <?php endforeach; else: ?>
+            <tr><td colspan="4" style="text-align:center;color:#64748b;padding:20px;">Hiện tại không có câu hỏi nào chờ duyệt.</td></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+
+    <div class="questions-card">
+        <div class="questions-card-head">
+            <h3>📦 KHO CÂU HỎI CHÍNH THỨC</h3>
+            <span style="color:#64748b;font-size:13px;font-weight:700;">
+                <?php echo count($approved_questions); ?> Số Câu
+            </span>
+        </div>
+
+        <div class="questions-card-scroll">
+            <table class="q-table">
+                <thead>
+                    <tr>
+                        <th width="10%">Môn</th>
+                        <th width="50%">Nội Dung Câu Hỏi</th>
+                        <th width="10%">Đáp Án</th>
+                        <th width="15%">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (count($approved_questions) > 0): foreach ($approved_questions as $q): ?>
+                    <tr>
+                        <td><strong style="color:#4f46e5;text-transform:uppercase;"><?php echo e($q['subject_name'] ?? 'N/A'); ?></strong></td>
+                        <td><?php echo e($q['question_text'] ?? ''); ?></td>
+                        <td style="font-weight:bold;color:#10b981"><?php echo e($q['correct_answer'] ?? ''); ?></td>
+                        <td>
+                            <button class="btn-edit" onclick="openEditModal(<?php echo (int)$q['id']; ?>, <?php echo htmlspecialchars(json_encode($q, JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8'); ?>)">Sửa</button>
+                            <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_q_id=<?php echo (int)$q['id']; ?>', 'Xóa câu hỏi này?', 'Câu hỏi sẽ bị gỡ vĩnh viễn!')">Xóa</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; else: ?>
+                    <tr>
+                        <td colspan="4" style="text-align:center;color:#64748b;padding:20px;">Kho dữ liệu câu hỏi trống.</td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3 class="section-title">📊 DANH SÁCH LỊCH SỬ THI CỦA SINH VIÊN</h3>
+    <table class="q-table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>MSSV / Thí Sinh</th>
+                <th>Môn Thi</th>
+                <th>Điểm Số</th>
+                <th>Thời Gian</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (count($results) > 0): foreach ($results as $index => $res): ?>
+            <tr>
+                <td><?php echo $index + 1; ?></td>
+                <td><strong><?php echo e($res['user_id'] ?? ''); ?></strong></td>
+                <td style="text-transform:uppercase;font-weight:600;"><?php echo e($res['subject_code'] ?? ''); ?></td>
+                <td style="font-weight:bold;color:#10b981"><?php echo e($res['score'] ?? ''); ?>đ</td>
+                <td style="color:#64748b;font-size:13px;"><?php echo e($res['submitted_at'] ?? ''); ?></td>
+                <td>
+                    <a href="#" class="btn-del" onclick="confirmAction(event, 'admin_dashboard.php?delete_res_id=<?php echo (int)$res['id']; ?>', 'Xóa điểm số này?', 'Kết quả sẽ bị hủy bỏ hoàn toàn!')">Xóa</a>
+                </td>
+            </tr>
+            <?php endforeach; else: ?>
+            <tr><td colspan="6" style="text-align:center;color:#64748b;padding:20px;">Chưa có dữ liệu điểm sinh viên.</td></tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h3 style="margin-top:0;color:#1e293b;">Chỉnh sửa câu hỏi</h3>
+        <form method="POST">
+            <input type="hidden" name="question_index" id="modal_index">
+            <div class="form-group"><label>Môn học (subjectId)</label><input type="text" name="subjectId" id="modal_subject" required></div>
+            <div class="form-group"><label>Exam Code</label><input type="text" name="exam_code" id="modal_exam_code"></div>
+            <div class="form-group"><label>Câu hỏi</label><textarea name="question" id="modal_question" rows="3" required></textarea></div>
+            <div class="form-group"><label>Đáp án A</label><input type="text" name="A" id="modal_a" required></div>
+            <div class="form-group"><label>Đáp án B</label><input type="text" name="B" id="modal_b" required></div>
+            <div class="form-group"><label>Đáp án C</label><input type="text" name="C" id="modal_c" required></div>
+            <div class="form-group"><label>Đáp án D</label><input type="text" name="D" id="modal_d" required></div>
+            <div class="form-group">
+                <label>Đáp án đúng</label>
+                <select name="correct" id="modal_correct">
+                    <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Độ khó</label>
+                <select name="difficulty" id="modal_difficulty">
+                    <option value="easy">easy</option>
+                    <option value="medium">medium</option>
+                    <option value="hard">hard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Trạng thái</label>
+                <select name="status" id="modal_status">
+                    <option value="approved">approved</option>
+                    <option value="pending">pending</option>
+                </select>
+            </div>
+            <div style="text-align:right;margin-top:20px;">
+                <button type="button" onclick="closeEditModal()" style="padding:10px 15px;border-radius:10px;border:1px solid #cbd5e1;cursor:pointer;background:#fff;">Hủy</button>
+                <button type="submit" name="edit_question" class="btn-edit" style="padding:10px 15px;">Cập nhật</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="addUserModal" class="modal">
+    <div class="modal-content">
+        <h3 style="margin-top:0;color:#1e293b;">Thêm tài khoản mới vào hệ thống</h3>
+        <form method="POST" autocomplete="off">
+            <div class="form-group">
+                <label>Tài khoản (Username)</label>
+                <input type="text" name="username" placeholder="Nhập tên đăng nhập duy nhất..." required>
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu đăng nhập</label>
+                <input type="password" name="password" placeholder="Nhập mật khẩu..." required>
+            </div>
+            <div class="form-group">
+                <label>Họ và Tên</label>
+                <input type="text" name="fullname" placeholder="Nhập họ và tên..." required>
+            </div>
+            <div class="form-group">
+                <label>Email liên kết</label>
+                <input type="email" name="email" placeholder="Nhập email..." required>
+            </div>
+            <div class="form-group">
+                <label>Chức vụ (Quyền hạn)</label>
+                <select name="role">
+                    <option value="student">Sinh viên (Student)</option>
+                    <option value="teacher">Giáo viên (Teacher)</option>
+                    <option value="admin">Quản trị viên (Admin)</option>
+                </select>
+            </div>
+            <div style="text-align:right;margin-top:20px;">
+                <button type="button" onclick="closeAddUserModal()" style="padding:10px 15px;border-radius:10px;border:1px solid #cbd5e1;cursor:pointer;background:#fff;">Hủy</button>
+                <button type="submit" name="add_user" class="btn-edit" style="padding:10px 15px;background:#4f46e5;">Xác nhận tạo</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="chat-panel" id="chatPanel">
+    <div class="chat-panel-head">
+        <div>
+            <h4>Chat Admin</h4>
+            <small>Nhật ký trao đổi từ hệ thống</small>
+        </div>
+        <button class="chat-close" type="button" onclick="toggleChatPanel()">×</button>
+    </div>
+
+    <div class="chat-panel-body">
+        <?php if (!empty($chatMessages)): ?>
+            <?php foreach ($chatMessages as $msg): ?>
+                <?php
+                    $isAdmin = (($msg['role'] ?? '') === 'admin');
+                ?>
+                <div class="chat-message-item <?php echo $isAdmin ? 'admin' : ''; ?>">
+                    <div class="chat-message-meta">
+                        <span class="chat-message-name">
+                            <?php echo e($msg['fullname'] ?: $msg['username'] ?: 'Unknown'); ?>
+                        </span>
+                        <span>•</span>
+                        <span class="chat-message-time">
+                            <?php echo e($msg['created_at']); ?>
+                        </span>
+                    </div>
+                    <div class="chat-message-bubble">
+                        <?php echo nl2br(e($msg['message'])); ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="chat-empty">Chưa có tin nhắn nào trong hệ thống.</div>
+        <?php endif; ?>
+    </div>
+
+    <form class="chat-panel-footer" method="POST" action="admin_dashboard.php">
+        <input type="text" name="chat_message" placeholder="Nhập tin nhắn..." required>
+        <button type="submit" name="send_chat">Gửi</button>
+    </form>
+</div>
+
+<a class="chat-fab" href="javascript:void(0)" onclick="toggleChatPanel()" title="Mở chat box">💬</a>
+
+<script>
+function openEditModal(index, data) {
+    document.getElementById('modal_index').value = index;
+    document.getElementById('modal_subject').value = data.subject_id || data.subjectId || '';
+    document.getElementById('modal_exam_code').value = data.exam_code || data.examCode || '';
+    document.getElementById('modal_question').value = data.question_text || data.question || '';
+    document.getElementById('modal_a').value = data.option_a || data.A || '';
+    document.getElementById('modal_b').value = data.option_b || data.B || '';
+    document.getElementById('modal_c').value = data.option_c || data.C || '';
+    document.getElementById('modal_d').value = data.option_d || data.D || '';
+    document.getElementById('modal_correct').value = data.correct_answer || data.correct || 'A';
+    document.getElementById('modal_difficulty').value = data.difficulty || 'easy';
+    document.getElementById('modal_status').value = data.status || 'approved';
+    document.getElementById('editModal').style.display = 'flex';
+}
+function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
+function openAddUserModal() { document.getElementById('addUserModal').style.display = 'flex'; }
+function closeAddUserModal() { document.getElementById('addUserModal').style.display = 'none'; }
+function toggleChatPanel() {
+    const panel = document.getElementById('chatPanel');
+    panel.classList.toggle('open');
+}
+function confirmAction(event, targetUrl, titleText, detailText) {
+    event.preventDefault();
+    Swal.fire({
+        title: titleText,
+        text: detailText,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444',
+        cancelButtonColor: '#64748b',
+        confirmButtonText: 'Đồng ý thực hiện',
+        cancelButtonText: 'Hủy bỏ'
+    }).then((result) => {
+        if (result.isConfirmed) window.location.href = targetUrl;
+    });
+}
+function kickUser(username) {
+    Swal.fire({
+        title: 'Hủy phiên học sinh?',
+        text: 'Học sinh ' + username + ' sẽ bị ngắt phiên hiện tại.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444',
+        cancelButtonText: 'Hủy bỏ',
+        confirmButtonText: 'Đồng ý'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công!',
+                text: 'Đã hủy phiên của học sinh.',
+                timer: 1800,
+                showConfirmButton: false
+            });
+        }
+    });
+}
+document.addEventListener('click', function(event) {
+    const toggleBtn = event.target.closest('.btn-toggle-exam');
+    if (!toggleBtn) return;
+
+    event.preventDefault();
+    const targetUrl = toggleBtn.getAttribute('href') + '&ajax=1';
+    const subject = toggleBtn.getAttribute('data-subject');
+    const row = toggleBtn.closest('tr');
+    const statusCell = row.querySelector('td:nth-child(3)');
+    const actionCell = row.querySelector('td:nth-child(4)');
+
+    fetch(targetUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                if (data.new_status === 'open') {
+                    statusCell.innerHTML = '<span class="role-badge status-open">🟢 Đang mở</span>';
+                    actionCell.innerHTML = `<a href="admin_dashboard.php?toggle_code=${encodeURIComponent(subject)}&set_status=closed" class="btn-toggle-off btn-toggle-exam" data-subject="${subject}">🔒 Khóa đề</a>`;
+                } else {
+                    statusCell.innerHTML = '<span class="role-badge status-closed">🔴 Đang khóa</span>';
+                    actionCell.innerHTML = `<a href="admin_dashboard.php?toggle_code=${encodeURIComponent(subject)}&set_status=open" class="btn-toggle-on btn-toggle-exam" data-subject="${subject}">🚀 Mở thi</a>`;
+                }
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Đã cập nhật trạng thái đề ' + data.subject + '!',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true
+                });
+            }
+        })
+        .catch(() => {
+            Swal.fire({ icon: 'error', title: 'Lỗi!', text: 'Không thể cập nhật trạng thái đề thi.' });
+        });
+});
+</script>
+
+<?php if (isset($_GET['error_add']) && $_GET['error_add'] === 'exists'): ?>
+<script>
+Swal.fire({ icon: 'error', title: 'Tài khoản đã tồn tại!', text: 'Tên đăng nhập này đã có trên hệ thống.', confirmButtonColor: '#ef4444' });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_delete'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Đã xóa tài khoản khỏi hệ thống.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_toggle'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Cập nhật thành công!', text: 'Đã đổi trạng thái môn.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_approve'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Đã phê duyệt câu hỏi.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_delete_q'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Đã xóa câu hỏi.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_delete_res'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Đã xóa kết quả thi.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_edit'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Đã cập nhật câu hỏi.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+<?php if (isset($_GET['success_add'])): ?>
+<script>
+Swal.fire({ icon: 'success', title: 'Thành công!', text: 'Đã thêm tài khoản mới.', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000 });
+</script>
+<?php endif; ?>
+
+</body>
+</html>
